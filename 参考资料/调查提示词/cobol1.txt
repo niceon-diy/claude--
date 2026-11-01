@@ -1,0 +1,132 @@
+我想完成一个3万行代码100多section的cobol程序的解析。让一个初级程序员也可快速看懂程序。对程序中的某一段可以迅速用文字进行准确说明，变量是干什么的，取不同的值代表的各是什么意思。条件判断逻辑是干什么的，是否有漏掉的情况。从入口在什么情况下怎么一步一步调用到当前位置的。
+具体做法如下，你帮我看看，是应该做成什么command还是skill还是agent呢？
+
+
+
+（1）需要先建立代码索引：
+1各个section名称，所在行号
+2各个变量名称，定义所在位置，初始化所在位置，赋值所在位置，参照利用所在位置
+（2）在代码索引的基础上开始对每个section和变量进行调查整理
+  遍历上面的整理结果中的每个section和变量，从section所在的行开始，到section结束再次进行分析，可以分成多次每次一部分代码进行，然后再进行合并
+1列出各个section的实际代码名，汉字名，所在行，长度。处理概要。按功能所在的分类。利用到的关键变量，怎么利用的，主要处理流，包括逻辑分支和循环（对任何一个实体（变量或者section）一定要同时有代码里的实际名称和可理解的汉字名称）
+2各个变量要列出变量名，汉字名，所在行，类型，区分值要把所有的可能值以及含义列出来，初始化所在位置以及所在的section，赋值所在位置以及所在的section，参照利用所在位置以及所在的section
+
+（3）在以上基础上进行一次验证
+   遍历上面的整理结果中的每个section和变量，从section所在的行开始，到section结束再次进行分析，可以分成多次每次一部分代码进行，然后再进行合并
+    检查反向调用、遗漏节点、对其他程序的调用（call）
+（4）对上面的整理结果画出详细流程图
+    明确调用关系，调用条件，循环逻辑 ，一定要逻辑清晰。无虚假内容
+ （5）创建全代码的逐行说明文档
+      页面分左右，左边是完整的全部程序代码。右边相同位置是程序的逻辑说明，变量要说明是干什么用的。
+
+
+
+推荐方案：Agent + Command + Skill 组合，Agent 为分析主力，Command 为入口，Skill 为知识固化。
+
+你的任务本质是多阶段、长周期、需要上下文隔离的大型代码分析。单靠 Command 或 Skill 不够用——3 万行 COBOL 产生的中间产物（索引、分析结果、流程图数据）会迅速撑爆主会话的上下文窗口。需要组合使用。
+
+为什么不是单 Command
+
+Command 在主会话内联执行，适合“用户明确触发的原子操作”。你明确列出了 5 个阶段，每个阶段的输出都是下一阶段的输入（索引 → Section/变量分析 → 验证 → 流程图 → 逐行文档）。如果全塞在一个 Command 里，3 万行代码的读取、中间 JSON 的生成和读取、多次合并操作，会把主会话上下文迅速耗尽。
+
+Command 更适合做入口点，而不是承载全部工作流。
+
+为什么不是单 Skill
+
+Skill 设计为“可复用的多步骤流程指令”，内容在使用时加载，适合封装专业知识。但 Skill 本身不提供独立的上下文窗口。你的任务涉及大量文件读写和中间产物，如果全程在主上下文跑，autocompact 会反复触发，丢失关键中间状态。
+
+推荐架构：Command → Agent（带 Skill 预加载）
+
+```text
+/cobol-analyze (Command — 用户入口)
+  → cobol-analyzer (Agent — 独立上下文执行 5 阶段)
+        ├── cobol-indexing (Skill — 索引构建规范)
+        ├── cobol-section-analysis (Skill — Section/变量分析规范)
+        └── cobol-verification (Skill — 验证清单)
+```
+
+各组件分工
+
+组件 角色 为什么
+Command 用户入口，接收 COBOL 文件路径 用户明确触发分析任务，简单直接
+Agent 执行 5 阶段分析，拥有独立上下文窗口 3 万行代码的读取和中间产物不污染主会话
+Skill 预加载到 Agent，封装分析规范和输出格式 Agent 启动时自动注入领域知识，不需要每次在 prompt 里重复
+
+关键设计要点
+
+Agent 的上下文中隔离
+
+这是最核心的收益。Agent 拥有独立的上下文窗口，可以反复读取代码片段、生成索引 JSON、合并中间结果，而主会话只接收最终产物。对于 100+ Section 的程序，这意味着你可以让 Agent 分批处理每个 Section（每批若干 Section），而不是试图一次塞入全部 3 万行。
+
+Anthropic 官方在大型代码库实践中明确推荐：让只读 subagent 测绘子系统并将发现写入文件，主 agent 用完整视图进行编辑。你的任务正好匹配这个模式——Agent 测绘和索引，最后产出可读的文档和流程图。
+
+Skill 预加载到 Agent
+
+在 Agent 的 frontmatter 里用 skills: 字段预加载分析规范。这样 Agent 启动时就已经带着“变量必须同时有实际名称和汉字名”“Section 必须列出调用条件和循环逻辑”等规则，不需要你在 Command 里塞一大堆 prompt。
+
+Skill 的 user-invocable: false 选项很适合这里——这些分析规范是背景知识，不是用户直接调用的动作。
+
+中间产物落盘
+
+3 万行代码的分析不可能一次对话完成。Agent 应该把每个阶段的输出写入文件：
+
+· 阶段 1：index/sections.json、index/variables.json
+· 阶段 2：analysis/sections/SEC-001.json、analysis/variables/VAR-XXX.json
+· 阶段 3：verification/report.json
+· 阶段 4：diagrams/flow.json
+· 阶段 5：documentation/line-by-line.md
+
+后续阶段从文件读取，而不是从对话历史里“回忆”。这也能跨会话继续工作。
+
+具体文件结构建议
+
+```text
+.claude/
+├── commands/
+│   └── cobol-analyze.md          # /cobol-analyze <path>
+├── agents/
+│   └── cobol-analyzer.md         # Agent 定义，预加载 skills
+└── skills/
+    ├── cobol-indexing/
+    │   └── SKILL.md              # 索引构建规范
+    ├── cobol-section-analysis/
+    │   └── SKILL.md              # Section/变量分析规范
+    ├── cobol-verification/
+    │   └── SKILL.md              # 验证检查清单
+    └── cobol-output-format/
+        └── SKILL.md              # 输出格式规范（含流程图 JSON schema）
+```
+
+Agent 定义的核心结构
+
+```yaml
+---
+name: cobol-analyzer
+description: COBOL 大型程序分析器。用于对 3 万行级别的 COBOL 程序进行索引、逐 Section 分析、验证和文档生成。
+tools: Read, Write, Glob, Grep, Bash
+model: sonnet
+skills:
+  - cobol-indexing
+  - cobol-section-analysis
+  - cobol-verification
+  - cobol-output-format
+---
+
+你是一名 COBOL 代码分析专家。你的任务是按照以下阶段分析目标程序，每个阶段完成后将结果写入指定文件。
+
+阶段 1 — 索引构建：...
+阶段 2 — Section/变量分析：...
+阶段 3 — 验证：...
+阶段 4 — 流程图数据：...
+阶段 5 — 逐行文档：...
+
+关键规则：
+- 所有实体（变量、Section）必须同时有实际名称和汉字名称
+- 每个 Section 必须记录调用条件、循环逻辑、关键变量利用方式
+- 变量必须列出所有可能取值及其含义
+- 验证阶段必须检查反向调用、遗漏节点、CALL 外部程序
+```
+
+---
+
+简言之：Command 做入口，Agent 做主力（隔离上下文、承载 5 阶段工作流），Skill 预加载到 Agent 做知识固化。不要试图用一个 Command 或一个 Skill 单独解决。
