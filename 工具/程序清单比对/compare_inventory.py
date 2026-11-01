@@ -233,7 +233,7 @@ def compare(
             "仅证明这两份CSV输入在上述精确标识规则下的差异。",
             "release_only是疑似遗漏，须回到原始资料核对提取、版本和Release范围。",
             "程序名相同不证明版本、内容或适用范围相同。",
-            "CSV对账通过不证明原文提取完整，也不证明业务无遗漏。",
+            "CSV比对通过不证明原文提取完整，也不证明业务无遗漏。",
         ],
         "inputs": {"release": release.statistics(), "summary": summary.statistics()},
         "unique_id_counts": {
@@ -291,13 +291,13 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
         report = compare(args.release, args.summary, args.output,
                          args.release_encoding, args.summary_encoding)
     except Exception as exc:
-        print("对账失败：{}: {}".format(type(exc).__name__, exc), file=sys.stderr)
+        print("比对失败：{}: {}".format(type(exc).__name__, exc), file=sys.stderr)
         return 2
     counts = report["unique_id_counts"]
     if report["needs_review"]:
-        print("对账已完成：存在差异或重复，待人工核查（退出码1）。")
+        print("比对已完成：存在差异或重复，待人工核查（退出码1）。")
     else:
-        print("对账已完成：两份CSV在当前规则下一致且无重复（退出码0）。")
+        print("比对已完成：两份CSV在当前规则下一致且无重复（退出码0）。")
     print("共同ID：{matched}；Release独有（疑似遗漏）：{release_only}；提取独有：{summary_only}。".format(**counts))
     duplicate_extras = sum(item["duplicate_extra_record_count"] for item in report["inputs"].values())
     print("额外重复记录：{}。结果目录：{}".format(duplicate_extras, args.output.resolve()))
