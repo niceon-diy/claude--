@@ -3,7 +3,7 @@
   "timezone": "Asia/Tokyo",
   "repository": "niceon-diy/claude--",
   "default_branch": "codex/claude-environment",
-  "status": "repository_checks_passed_issue_link_sync_pending",
+  "status": "complete",
   "directory_mapping": {
     "original_files": 70,
     "moved_files": 68,
@@ -49,8 +49,9 @@
     "legacy_archive_branch_unchanged": true
   },
   "online_issues": {
-    "status": "pending_source_link_sync",
-    "expected_issues_to_update": [
+    "status": "verified",
+    "total_issues": 22,
+    "source_link_updates": [
       1,
       2,
       3,
@@ -73,7 +74,12 @@
       20,
       21
     ],
+    "updated_issue_count": 21,
     "master_issue_unchanged": 22,
-    "note": "只更新资料链接和路径；不改变标题、业务内容、依赖URL和状态。"
-  }
+    "source_links_verified": 130,
+    "unique_source_targets": 22,
+    "titles_states_dependencies_and_business_content_preserved": true,
+    "comments_added": 0
+  },
+  "organization_commit": "a68dad7253b3a2cb04dea6f9a617fd4558b39cdb"
 }
