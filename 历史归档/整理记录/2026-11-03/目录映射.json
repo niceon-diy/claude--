@@ -1,0 +1,287 @@
+{
+  "date": "2026-11-03",
+  "source_commit": "5cf7a4ca9a246decb87aa8b511991a1d7caef103",
+  "repository": "niceon-diy/claude--",
+  "files": [
+    {
+      "old_path": ".gitignore",
+      "new_path": ".gitignore"
+    },
+    {
+      "old_path": "B001_把话说清楚与输出格式.md",
+      "new_path": "通用提示词/B001_把话说清楚与输出格式.md"
+    },
+    {
+      "old_path": "README.md",
+      "new_path": "README.md"
+    },
+    {
+      "old_path": "仓库迁移记录/2026-11-03_Claude-AI------/Issue迁移映射.json",
+      "new_path": "历史归档/仓库迁移记录/2026-11-03_Claude-AI------/Issue迁移映射.json"
+    },
+    {
+      "old_path": "仓库迁移记录/2026-11-03_Claude-AI------/README.md",
+      "new_path": "历史归档/仓库迁移记录/2026-11-03_Claude-AI------/README.md"
+    },
+    {
+      "old_path": "仓库迁移记录/2026-11-03_Claude-AI------/仓库资产清单.json",
+      "new_path": "历史归档/仓库迁移记录/2026-11-03_Claude-AI------/仓库资产清单.json"
+    },
+    {
+      "old_path": "仓库迁移记录/2026-11-03_Claude-AI------/删除前Issue完整快照.json",
+      "new_path": "历史归档/仓库迁移记录/2026-11-03_Claude-AI------/删除前Issue完整快照.json"
+    },
+    {
+      "old_path": "仓库迁移记录/2026-11-03_Claude-AI------/删除状态.json",
+      "new_path": "历史归档/仓库迁移记录/2026-11-03_Claude-AI------/删除状态.json"
+    },
+    {
+      "old_path": "仓库迁移记录/2026-11-03_Claude-AI------/文件映射.json",
+      "new_path": "历史归档/仓库迁移记录/2026-11-03_Claude-AI------/文件映射.json"
+    },
+    {
+      "old_path": "仓库迁移记录/2026-11-03_Claude-AI------/迁移前Issue原文.json",
+      "new_path": "历史归档/仓库迁移记录/2026-11-03_Claude-AI------/迁移前Issue原文.json"
+    },
+    {
+      "old_path": "会社用タスクチケット/README.md",
+      "new_path": "追加开发/任务票/README.md"
+    },
+    {
+      "old_path": "会社用タスクチケット/チケットデータ.json",
+      "new_path": "追加开发/任务票/维护/任务数据.json"
+    },
+    {
+      "old_path": "会社用タスクチケット/チケット生成.py",
+      "new_path": "追加开发/任务票/维护/生成任务票.py"
+    },
+    {
+      "old_path": "会社用タスクチケット/会社Claudeへ渡す_全チケット.md",
+      "new_path": "追加开发/任务票/全部任务.md"
+    },
+    {
+      "old_path": "会社用タスクチケット/個別チケット/ADD-001.md",
+      "new_path": "追加开发/任务票/个别任务/ADD-001.md"
+    },
+    {
+      "old_path": "会社用タスクチケット/個別チケット/ADD-002.md",
+      "new_path": "追加开发/任务票/个别任务/ADD-002.md"
+    },
+    {
+      "old_path": "会社用タスクチケット/個別チケット/ADD-003.md",
+      "new_path": "追加开发/任务票/个别任务/ADD-003.md"
+    },
+    {
+      "old_path": "会社用タスクチケット/個別チケット/ADD-004.md",
+      "new_path": "追加开发/任务票/个别任务/ADD-004.md"
+    },
+    {
+      "old_path": "会社用タスクチケット/個別チケット/ADD-005.md",
+      "new_path": "追加开发/任务票/个别任务/ADD-005.md"
+    },
+    {
+      "old_path": "会社用タスクチケット/個別チケット/ADD-006.md",
+      "new_path": "追加开发/任务票/个别任务/ADD-006.md"
+    },
+    {
+      "old_path": "会社用タスクチケット/個別チケット/ADD-007.md",
+      "new_path": "追加开发/任务票/个别任务/ADD-007.md"
+    },
+    {
+      "old_path": "会社用タスクチケット/個別チケット/ADD-008.md",
+      "new_path": "追加开发/任务票/个别任务/ADD-008.md"
+    },
+    {
+      "old_path": "会社用タスクチケット/個別チケット/ADD-009.md",
+      "new_path": "追加开发/任务票/个别任务/ADD-009.md"
+    },
+    {
+      "old_path": "会社用タスクチケット/個別チケット/ADD-010.md",
+      "new_path": "追加开发/任务票/个别任务/ADD-010.md"
+    },
+    {
+      "old_path": "会社用タスクチケット/個別チケット/ADD-011.md",
+      "new_path": "追加开发/任务票/个别任务/ADD-011.md"
+    },
+    {
+      "old_path": "会社用タスクチケット/個別チケット/ADD-012.md",
+      "new_path": "追加开发/任务票/个别任务/ADD-012.md"
+    },
+    {
+      "old_path": "会社用タスクチケット/個別チケット/ADD-013.md",
+      "new_path": "追加开发/任务票/个别任务/ADD-013.md"
+    },
+    {
+      "old_path": "会社用タスクチケット/個別チケット/LATER-001.md",
+      "new_path": "追加开发/任务票/个别任务/LATER-001.md"
+    },
+    {
+      "old_path": "会社用タスクチケット/個別チケット/LATER-002.md",
+      "new_path": "追加开发/任务票/个别任务/LATER-002.md"
+    },
+    {
+      "old_path": "会社用タスクチケット/個別チケット/LATER-003.md",
+      "new_path": "追加开发/任务票/个别任务/LATER-003.md"
+    },
+    {
+      "old_path": "会社用タスクチケット/個別チケット/LATER-004.md",
+      "new_path": "追加开发/任务票/个别任务/LATER-004.md"
+    },
+    {
+      "old_path": "会社用タスクチケット/個別チケット/LATER-005.md",
+      "new_path": "追加开发/任务票/个别任务/LATER-005.md"
+    },
+    {
+      "old_path": "会社用タスクチケット/個別チケット/SUP-001.md",
+      "new_path": "追加开发/任务票/个别任务/SUP-001.md"
+    },
+    {
+      "old_path": "会社用タスクチケット/個別チケット/SUP-002.md",
+      "new_path": "追加开发/任务票/个别任务/SUP-002.md"
+    },
+    {
+      "old_path": "会社用タスクチケット/個別チケット/SUP-003.md",
+      "new_path": "追加开发/任务票/个别任务/SUP-003.md"
+    },
+    {
+      "old_path": "会社用タスクチケット/総合Issue本文.md",
+      "new_path": "追加开发/任务票/总任务.md"
+    },
+    {
+      "old_path": "使用说明/基本设计书覆盖核对.md",
+      "new_path": "追加开发/基本设计书覆盖核对.md"
+    },
+    {
+      "old_path": "使用说明/首次接入提示词.md",
+      "new_path": "开发环境/首次接入提示词.md"
+    },
+    {
+      "old_path": "参考资料/README.md",
+      "new_path": "历史归档/资料来源.md"
+    },
+    {
+      "old_path": "参考资料/个人规则/个人工作规则.md",
+      "new_path": "历史归档/个人规则/个人工作规则.md"
+    },
+    {
+      "old_path": "参考资料/个人规则/任务要求模板.md",
+      "new_path": "历史归档/个人规则/任务要求模板.md"
+    },
+    {
+      "old_path": "参考资料/个人规则/远程部署指令.md",
+      "new_path": "历史归档/个人规则/远程部署指令.md"
+    },
+    {
+      "old_path": "参考资料/个人规则/部署与验收.md",
+      "new_path": "历史归档/个人规则/部署与验收.md"
+    },
+    {
+      "old_path": "参考资料/旧仓库原文/Claude-AI------/README.md",
+      "new_path": "历史归档/旧仓库原文/Claude-AI------/README.md"
+    },
+    {
+      "old_path": "参考资料/旧仓库原文/Claude-AI------/提示词/P002_14个项目追加对应一览核对与参考Source差分整理.md",
+      "new_path": "历史归档/旧仓库原文/Claude-AI------/提示词/P002_14个项目追加对应一览核对与参考Source差分整理.md"
+    },
+    {
+      "old_path": "参考资料/旧仓库原文/Claude-AI------/项目追加注意事项.md",
+      "new_path": "历史归档/旧仓库原文/Claude-AI------/项目追加注意事项.md"
+    },
+    {
+      "old_path": "参考资料/调查提示词/Claude Code 全工程共通調査規範（総則）",
+      "new_path": "历史归档/调查笔记/Claude Code 全工程共通調査規範（総則）"
+    },
+    {
+      "old_path": "参考资料/调查提示词/TODO.txt",
+      "new_path": "历史归档/调查笔记/TODO.txt"
+    },
+    {
+      "old_path": "参考资料/调查提示词/cobol1.txt",
+      "new_path": "历史归档/调查笔记/cobol1.txt"
+    },
+    {
+      "old_path": "参考资料/调查提示词/cobol2",
+      "new_path": "历史归档/调查笔记/cobol2"
+    },
+    {
+      "old_path": "参考资料/调查提示词/cobol3",
+      "new_path": "历史归档/调查笔记/cobol3"
+    },
+    {
+      "old_path": "参考资料/调查提示词/harness",
+      "new_path": "历史归档/调查笔记/harness"
+    },
+    {
+      "old_path": "参考资料/调查提示词/hello.txt",
+      "new_path": "历史归档/调查笔记/hello.txt"
+    },
+    {
+      "old_path": "参考资料/调查提示词/バージョン管理",
+      "new_path": "历史归档/调查笔记/バージョン管理"
+    },
+    {
+      "old_path": "参考资料/调查提示词/リラン調査",
+      "new_path": "历史归档/调查笔记/リラン調査"
+    },
+    {
+      "old_path": "参考资料/调查提示词/レガシーシステム静的解析の専門家",
+      "new_path": "历史归档/调查笔记/レガシーシステム静的解析の専門家"
+    },
+    {
+      "old_path": "参考资料/调查提示词/证明过程",
+      "new_path": "历史归档/调查笔记/证明过程"
+    },
+    {
+      "old_path": "工具/程序清单比对/README.md",
+      "new_path": "追加开发/程序清单比对/README.md"
+    },
+    {
+      "old_path": "工具/程序清单比对/compare_inventory.py",
+      "new_path": "追加开发/程序清单比对/compare_inventory.py"
+    },
+    {
+      "old_path": "工具/程序清单比对/test_compare_inventory.py",
+      "new_path": "追加开发/程序清单比对/test_compare_inventory.py"
+    },
+    {
+      "old_path": "工具/程序清单比对/程序清单比对任务.md",
+      "new_path": "追加开发/程序清单比对/程序清单比对任务.md"
+    },
+    {
+      "old_path": "提示词/P001_程序与设计书对应调查及报告生成提示词.md",
+      "new_path": "通用提示词/程序与设计书对应调查/P001_程序与设计书对应调查及报告生成提示词.md"
+    },
+    {
+      "old_path": "提示词/P002_14个项目追加对应一览核对与参考Source差分整理.md",
+      "new_path": "追加开发/14个项目核对/P002_14个项目追加对应一览核对与参考Source差分整理.md"
+    },
+    {
+      "old_path": "提示词/P002_AI驱动开发工程智能体与Manual调查提示词.html",
+      "new_path": "通用提示词/AI智能体与Manual调查/P002_AI驱动开发工程智能体与Manual调查提示词.html"
+    },
+    {
+      "old_path": "提示词/P002_AI驱动开发工程智能体与Manual调查提示词.md",
+      "new_path": "通用提示词/AI智能体与Manual调查/P002_AI驱动开发工程智能体与Manual调查提示词.md"
+    },
+    {
+      "old_path": "提示词/README.md",
+      "new_path": "通用提示词/README.md"
+    },
+    {
+      "old_path": "提示词/生成P002阅读版.py",
+      "new_path": "通用提示词/AI智能体与Manual调查/生成阅读版.py"
+    },
+    {
+      "old_path": "模板/CLAUDE.md",
+      "new_path": "开发环境/模板/CLAUDE.md"
+    },
+    {
+      "old_path": "模板/当前任务.md",
+      "new_path": "开发环境/模板/当前任务.md"
+    },
+    {
+      "old_path": "项目追加注意事项.md",
+      "new_path": "追加开发/项目追加注意事项.md"
+    }
+  ]
+}
