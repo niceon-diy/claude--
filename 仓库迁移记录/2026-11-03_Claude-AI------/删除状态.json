@@ -1,0 +1,8 @@
+{
+  "source_repository": "niceon-diy/Claude-AI------",
+  "source_repository_id": 1440908128,
+  "destination_repository": "niceon-diy/claude--",
+  "destination_default_branch": "codex/claude-environment",
+  "status": "migration_verified_deletion_pending",
+  "note": "先将迁移记录、原文和历史保存并验证，旧仓库尚未删除。"
+}

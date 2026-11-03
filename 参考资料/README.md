@@ -4,7 +4,7 @@
 
 | 目录 | 内容 | 固定来源版本 |
 | --- | --- | --- |
-| [个人规则](个人规则/) | 4 份个人协作、任务要求、部署与验收文档 | [Claude-AI------ · a93daba](https://github.com/niceon-diy/Claude-AI------/tree/a93daba533b2a0ebc361ca9c83e8b4521e66a56b/claude-quality-setup) |
+| [个人规则](个人规则/) | 4 份个人协作、任务要求、部署与验收文档 | [旧库历史已迁入主仓库 · a93daba](https://github.com/niceon-diy/claude--/tree/a93daba533b2a0ebc361ca9c83e8b4521e66a56b/claude-quality-setup) |
 | [调查提示词](调查提示词/) | 11 份工程调查、COBOL、再运行、证据和版本管理笔记 | [my-git-test · 984dbe1](https://github.com/niceon-diy/my-git-test/tree/984dbe16285fb5c8e97b7dd1acb50814d12b6fc5) |
 
 ## 如何使用
@@ -14,4 +14,4 @@
 - `个人规则/部署与验收.md` 中的机器、版本和登录状态是旧记录，使用时核实当前实际环境。
 - 原 `claude-quality-setup/CLAUDE.md` 在这里保存为 [个人工作规则.md](个人规则/个人工作规则.md)，保留原文，避免归档文件被作为当前目录规则自动加载。
 
-本次集中保存文件内容，保留两个原仓库及其提交历史。后续以主仓库中的文件继续整理；原文保留用于核对来源。
+2026-11-03 已将 Claude-AI------ 的剩余原文、完整 Git 历史和 Issue 快照保存到主仓库，按用户要求在验证后删除旧库；实际结果见[完整迁移记录](../仓库迁移记录/2026-11-03_Claude-AI------/README.md)。my-git-test 保持原样。后续以主仓库中的文件继续整理；历史原文保留用于核对来源。
