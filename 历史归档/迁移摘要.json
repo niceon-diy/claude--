@@ -192,7 +192,7 @@
   "local_legacy_backup_directory": "C:/Users/niceo/Documents/ChatGPT/Claude AI驱动系统开发/仓库迁移备份/2026-11-03_Claude-AI------/",
   "consolidation": {
     "snapshot_commit": "9249729196faa85c3b714b4686da59ff59bb38a7",
-    "verification_status": "local_verified_issue_sync_pending",
+    "verification_status": "complete",
     "note": "仅删除默认分支的重复副本；旧完整快照与原文继续由可追溯的固定Git提交提供。",
     "resumed_integration_date": "2026-11-08",
     "integrated_remote_commit": "fd821f51f0c53032af00d5078f7c43ad35b5b7a2",
@@ -227,6 +227,39 @@
     "archive_file_count_after": 4,
     "old_copies_removed_from_current_branch": 29,
     "new_consolidated_topic_documents": 6,
-    "publication_date": "2026-11-08"
+    "publication_date": "2026-11-08",
+    "completed_date": "2026-11-08",
+    "published_content_commit": "40e859970c8de26bf6c7026f93e74aa841e0d1f4",
+    "online_issues": {
+      "status": "verified",
+      "issue_count": 22,
+      "updated_issue_count": 19,
+      "updated_issue_numbers": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21
+      ],
+      "source_mappings": 14,
+      "source_links_checked": 130,
+      "unique_source_targets": 22,
+      "business_bodies_preserved_except_reference_locations": true,
+      "issue_titles_states_labels_assignees_milestones_preserved": true
+    }
   }
 }
