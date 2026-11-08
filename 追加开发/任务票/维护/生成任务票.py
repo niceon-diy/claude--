@@ -125,14 +125,13 @@ def validate(pack):
         assert s.get('title') and s.get('title_zh')
         source_file=REPO_ROOT/s['path']
         assert source_file.is_file(),('不存在的来源路径／存在しない資料',s['path'])
-        if s.get('language_paths'):
-            assert set(s['language_paths'])=={'zh','ja'},('资料语言版本不完整／資料の言語版が不足',s['id'])
-            for language,path in s['language_paths'].items():
-                assert (REPO_ROOT/path).is_file(),('语言版资料不存在／言語版資料が存在しない',s['id'],language,path)
-        if s.get('anchor'):
-            assert re.fullmatch(r'[a-z][a-z0-9-]*',s['anchor']),('不合法的来源锚点／不正な資料アンカー',s['anchor'])
+        if s.get('language_anchors'):
+            assert set(s['language_anchors'])=={'zh','ja'},('资料语言章节不完整／資料の言語節が不足',s['id'])
+        anchors=list(s.get('language_anchors',{}).values())+([s['anchor']] if s.get('anchor') else [])
+        for anchor in anchors:
+            assert re.fullmatch(r'[a-z][a-z0-9-]*',anchor),('不合法的来源锚点／不正な資料アンカー',anchor)
             source_text=source_file.read_text(encoding='utf-8')
-            assert f'id="{s["anchor"]}"' in source_text,('来源章节不存在／資料の節が存在しない',s['path'],s['anchor'])
+            assert f'id="{anchor}"' in source_text,('来源章节不存在／資料の節が存在しない',s['path'],anchor)
     visiting=set();visited=set()
     def walk(id):
         assert id not in visiting,('依赖环／依存循環',id)
@@ -142,13 +141,18 @@ def validate(pack):
         visiting.remove(id);visited.add(id)
     for id in index:walk(id)
 
+def source_anchor(source,lang=None):
+    return source.get('language_anchors',{}).get(lang,source.get('anchor',''))
+
 def source_location(source,lang=None):
-    return source.get('language_paths',{}).get(lang,source['path'])
+    anchor=source_anchor(source,lang)
+    return source['path']+('#'+anchor if anchor else '')
 
 def source_url(pack,source,lang=None):
     branch=pack.get('default_branch','codex/claude-environment')
-    url=f"https://github.com/{pack['repository']}/blob/{quote(branch,safe='/')}/{quote(source_location(source,lang),safe='/')}"
-    return url+'#'+quote(source['anchor'],safe='') if source.get('anchor') else url
+    url=f"https://github.com/{pack['repository']}/blob/{quote(branch,safe='/')}/{quote(source['path'],safe='/')}"
+    anchor=source_anchor(source,lang)
+    return url+'#'+quote(anchor,safe='') if anchor else url
 
 def issue_link(t,lang):
     return f"[{t['id']}｜{value(t,'title',lang)}]({t['issue_url']})"
@@ -174,7 +178,7 @@ def render_language(t,pack,lang,anchor):
     text+=f"### {labels['failure']}\n\n{labels['failure_text']}\n\n"+COMMON[lang]+'\n'
     text+=f"### {labels['refs']}\n\n"
     for id in t['refs']:
-        s=sources[id];location=source_location(s,lang)+('#'+s['anchor'] if s.get('anchor') else '')
+        s=sources[id];location=source_location(s,lang)
         text+=f"- {id}：[{value(s,'title',lang)}]({source_url(pack,s,lang)})  \n  {labels['source_path']}：\u0060{location}\u0060\n"
     return text+'\n'+labels['refs_note']+'\n'
 
@@ -213,7 +217,7 @@ def render_readme(pack):
     text+='\n## 来源与任务对应／資料とチケットの対応\n\n| 来源／資料 | 文件／ファイル | 对应任务／対応チケット |\n|---|---|---|\n'
     for s in pack['sources']:
         mappings=', '.join(t['id'] for t in pack['tickets'] if s['id'] in t['refs'])
-        links=(f"[中文版]({source_url(pack,s,'zh')}) · [日本語版]({source_url(pack,s,'ja')})" if s.get('language_paths') else f"[{s['path']}]({source_url(pack,s)})")
+        links=(f"[中文版]({source_url(pack,s,'zh')}) · [日本語版]({source_url(pack,s,'ja')})" if s.get('language_anchors') else f"[{s['path']}]({source_url(pack,s)})")
         text+=f"| {s['id']} {s['title_zh']}／{s['title']} | {links} | {mappings} |\n"
     text+='\n## 维护与实际状态／保守と実際の状態\n\n'
     text+='- 中文：\u0060维护/任务数据.json\u0060是任务事实、编号、依赖、状态和双语内容的唯一维护来源。更新后在任务票目录运行\u0060python 维护/生成任务票.py\u0060，生成个别任务、总任务、README和合并原文；脚本只生成本地文件，不会上传或更新GitHub。共通规则、当前任务、任务要求模板和证据原则已纳入各任务。历史来源已合并为主题文档，章节链接可直接定位；原件通过历史归档的来源索引追溯，不重复建票。创建文件或Issue不代表公司业务已经调查、开发或测试完成。\n'
