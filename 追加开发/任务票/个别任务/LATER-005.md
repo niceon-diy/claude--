@@ -73,10 +73,10 @@ GitHub：https://github.com/niceon-diy/claude--/issues/21
 
 ### 参考来源及资料处理
 
-- S20：[远程个人规则部署](https://github.com/niceon-diy/claude--/blob/codex/claude-environment/%E5%8E%86%E5%8F%B2%E5%BD%92%E6%A1%A3/%E4%B8%AA%E4%BA%BA%E8%A7%84%E5%88%99/%E8%BF%9C%E7%A8%8B%E9%83%A8%E7%BD%B2%E6%8C%87%E4%BB%A4.md)  
-  资料路径：`历史归档/个人规则/远程部署指令.md`
-- S21：[个人工作与表达规则](https://github.com/niceon-diy/claude--/blob/codex/claude-environment/%E5%8E%86%E5%8F%B2%E5%BD%92%E6%A1%A3/%E4%B8%AA%E4%BA%BA%E8%A7%84%E5%88%99/%E4%B8%AA%E4%BA%BA%E5%B7%A5%E4%BD%9C%E8%A7%84%E5%88%99.md)  
-  资料路径：`历史归档/个人规则/个人工作规则.md`
+- S20：[远程个人规则部署](https://github.com/niceon-diy/claude--/blob/codex/claude-environment/%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/%E8%A7%84%E5%88%99%E9%83%A8%E7%BD%B2%E4%B8%8E%E9%AA%8C%E6%94%B6.md#deployment)  
+  资料路径：`开发环境/规则部署与验收.md#deployment`
+- S21：[个人工作与表达规则](https://github.com/niceon-diy/claude--/blob/codex/claude-environment/%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/%E6%A8%A1%E6%9D%BF/CLAUDE.md#working-rules)  
+  资料路径：`开发环境/模板/CLAUDE.md#working-rules`
 
 即使公司环境无法读取参考源文件，本任务正文也已包含步骤、成果和完成条件。参考资料中的方案不等于已部署配置。
 
@@ -150,9 +150,9 @@ GitHub：https://github.com/niceon-diy/claude--/issues/21
 
 ### 参考元と資料の扱い
 
-- S20：[リモート個人ルール導入](https://github.com/niceon-diy/claude--/blob/codex/claude-environment/%E5%8E%86%E5%8F%B2%E5%BD%92%E6%A1%A3/%E4%B8%AA%E4%BA%BA%E8%A7%84%E5%88%99/%E8%BF%9C%E7%A8%8B%E9%83%A8%E7%BD%B2%E6%8C%87%E4%BB%A4.md)  
-  資料パス：`历史归档/个人规则/远程部署指令.md`
-- S21：[個人の作業・説明ルール](https://github.com/niceon-diy/claude--/blob/codex/claude-environment/%E5%8E%86%E5%8F%B2%E5%BD%92%E6%A1%A3/%E4%B8%AA%E4%BA%BA%E8%A7%84%E5%88%99/%E4%B8%AA%E4%BA%BA%E5%B7%A5%E4%BD%9C%E8%A7%84%E5%88%99.md)  
-  資料パス：`历史归档/个人规则/个人工作规则.md`
+- S20：[リモート個人ルール導入](https://github.com/niceon-diy/claude--/blob/codex/claude-environment/%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/%E8%A7%84%E5%88%99%E9%83%A8%E7%BD%B2%E4%B8%8E%E9%AA%8C%E6%94%B6.md#deployment)  
+  資料パス：`开发环境/规则部署与验收.md#deployment`
+- S21：[個人の作業・説明ルール](https://github.com/niceon-diy/claude--/blob/codex/claude-environment/%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/%E6%A8%A1%E6%9D%BF/CLAUDE.md#working-rules)  
+  資料パス：`开发环境/模板/CLAUDE.md#working-rules`
 
 会社環境で参考ファイルを読めなくても、本チケット本文には手順・成果・完了条件を含めている。参考資料の提案を導入済み設定とは扱わない。

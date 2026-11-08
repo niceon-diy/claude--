@@ -1,0 +1,357 @@
+{
+  "snapshot_commit": "9249729196faa85c3b714b4686da59ff59bb38a7",
+  "repository": "niceon-diy/claude--",
+  "date": "2026-11-03",
+  "description": "原文固定在Git历史，current_targets是合并后的入口；snapshot中的旧路径不再作为当前文件路径使用。",
+  "original_file_count": 30,
+  "original_git_bytes": 555647,
+  "original_sources": [
+    {
+      "repository": "niceon-diy/Claude-AI------",
+      "preserved_in_repository": "niceon-diy/claude--",
+      "preserved_ref": "codex/archive-legacy-private-main",
+      "commit": "67652ff0530599f55dc0a70bf3aa9ae49e8582dd"
+    },
+    {
+      "repository": "niceon-diy/my-git-test",
+      "commit": "984dbe16285fb5c8e97b7dd1acb50814d12b6fc5"
+    }
+  ],
+  "files": [
+    {
+      "original_path": "历史归档/README.md",
+      "original_blob_sha": "86db691e027023b30a849e933969a04204917723",
+      "original_bytes": 3346,
+      "original_url": "https://github.com/niceon-diy/claude--/blob/9249729196faa85c3b714b4686da59ff59bb38a7/%E5%8E%86%E5%8F%B2%E5%BD%92%E6%A1%A3/README.md",
+      "action": "merge_navigation_and_provenance",
+      "current_targets": [
+        "历史归档/README.md",
+        "历史归档/来源与去留索引.json"
+      ],
+      "reason": "导航、来源和历史入口统一维护。"
+    },
+    {
+      "original_path": "历史归档/个人规则/个人工作规则.md",
+      "original_blob_sha": "9493c597124ed0f99533976d06cd69ab9678b117",
+      "original_bytes": 4738,
+      "original_url": "https://github.com/niceon-diy/claude--/blob/9249729196faa85c3b714b4686da59ff59bb38a7/%E5%8E%86%E5%8F%B2%E5%BD%92%E6%A1%A3/%E4%B8%AA%E4%BA%BA%E8%A7%84%E5%88%99/%E4%B8%AA%E4%BA%BA%E5%B7%A5%E4%BD%9C%E8%A7%84%E5%88%99.md",
+      "action": "merge_unique_content_then_remove_copy",
+      "current_targets": [
+        "开发环境/模板/CLAUDE.md#working-rules",
+        "开发环境/规则部署与验收.md#deployment"
+      ],
+      "reason": "执行与证据要求已有现用总则；补入验收点、反例和范围约束。旧自然5W1H条款与已定稿B001冲突，不提升为现用规则。"
+    },
+    {
+      "original_path": "历史归档/个人规则/任务要求模板.md",
+      "original_blob_sha": "c778440e01aa8afd228336a62016dc6fe0c873ca",
+      "original_bytes": 815,
+      "original_url": "https://github.com/niceon-diy/claude--/blob/9249729196faa85c3b714b4686da59ff59bb38a7/%E5%8E%86%E5%8F%B2%E5%BD%92%E6%A1%A3/%E4%B8%AA%E4%BA%BA%E8%A7%84%E5%88%99/%E4%BB%BB%E5%8A%A1%E8%A6%81%E6%B1%82%E6%A8%A1%E6%9D%BF.md",
+      "action": "merge_unique_content_then_remove_copy",
+      "current_targets": [
+        "开发环境/模板/当前任务.md#task-request"
+      ],
+      "reason": "目标、输入、成果和验收已覆盖；补入明确排除项与既有确认节点，合为一份当前任务模板。"
+    },
+    {
+      "original_path": "历史归档/个人规则/远程部署指令.md",
+      "original_blob_sha": "d0f476a6e87fb24e464ebfc1f7af8581ec42e334",
+      "original_bytes": 9373,
+      "original_url": "https://github.com/niceon-diy/claude--/blob/9249729196faa85c3b714b4686da59ff59bb38a7/%E5%8E%86%E5%8F%B2%E5%BD%92%E6%A1%A3/%E4%B8%AA%E4%BA%BA%E8%A7%84%E5%88%99/%E8%BF%9C%E7%A8%8B%E9%83%A8%E7%BD%B2%E6%8C%87%E4%BB%A4.md",
+      "action": "merge_unique_content_then_remove_copy",
+      "current_targets": [
+        "开发环境/规则部署与验收.md#deployment"
+      ],
+      "reason": "56行规则正文与个人工作规则重复；独有配置定位、符号链接和三阶段验收合入一份说明，旧单次授权不沿用。"
+    },
+    {
+      "original_path": "历史归档/个人规则/部署与验收.md",
+      "original_blob_sha": "7f71397050f94a715d04b6f31643935f1ffbcdd4",
+      "original_bytes": 3676,
+      "original_url": "https://github.com/niceon-diy/claude--/blob/9249729196faa85c3b714b4686da59ff59bb38a7/%E5%8E%86%E5%8F%B2%E5%BD%92%E6%A1%A3/%E4%B8%AA%E4%BA%BA%E8%A7%84%E5%88%99/%E9%83%A8%E7%BD%B2%E4%B8%8E%E9%AA%8C%E6%94%B6.md",
+      "action": "merge_unique_content_then_remove_copy",
+      "current_targets": [
+        "开发环境/规则部署与验收.md#deployment"
+      ],
+      "reason": "保留加载核验和3个行为样例；2026-10-31机器/登录/SSH状态只留历史版本。"
+    },
+    {
+      "original_path": "历史归档/仓库迁移记录/2026-11-03_Claude-AI------/Issue迁移映射.json",
+      "original_blob_sha": "b60d17b05632f67d07fd745d4d087159952fe526",
+      "original_bytes": 9087,
+      "original_url": "https://github.com/niceon-diy/claude--/blob/9249729196faa85c3b714b4686da59ff59bb38a7/%E5%8E%86%E5%8F%B2%E5%BD%92%E6%A1%A3/%E4%BB%93%E5%BA%93%E8%BF%81%E7%A7%BB%E8%AE%B0%E5%BD%95/2026-11-03_Claude-AI------/Issue%E8%BF%81%E7%A7%BB%E6%98%A0%E5%B0%84.json",
+      "action": "keep_summary_and_git_snapshot",
+      "current_targets": [
+        "历史归档/迁移摘要.json"
+      ],
+      "reason": "重复快照和事件明细保存在固定Git版本；当前仅维护身份、迁移结果、22个Issue映射和记录入口。"
+    },
+    {
+      "original_path": "历史归档/仓库迁移记录/2026-11-03_Claude-AI------/README.md",
+      "original_blob_sha": "2faaddbad78896d6c6a7fead91fc81e67115b7bb",
+      "original_bytes": 4978,
+      "original_url": "https://github.com/niceon-diy/claude--/blob/9249729196faa85c3b714b4686da59ff59bb38a7/%E5%8E%86%E5%8F%B2%E5%BD%92%E6%A1%A3/%E4%BB%93%E5%BA%93%E8%BF%81%E7%A7%BB%E8%AE%B0%E5%BD%95/2026-11-03_Claude-AI------/README.md",
+      "action": "merge_history_navigation",
+      "current_targets": [
+        "历史归档/迁移摘要.json"
+      ],
+      "reason": "重复快照和事件明细保存在固定Git版本；当前仅维护身份、迁移结果、22个Issue映射和记录入口。"
+    },
+    {
+      "original_path": "历史归档/仓库迁移记录/2026-11-03_Claude-AI------/仓库资产清单.json",
+      "original_blob_sha": "0f4ac247e10952d1d211feffc682812f0f7f02b2",
+      "original_bytes": 9625,
+      "original_url": "https://github.com/niceon-diy/claude--/blob/9249729196faa85c3b714b4686da59ff59bb38a7/%E5%8E%86%E5%8F%B2%E5%BD%92%E6%A1%A3/%E4%BB%93%E5%BA%93%E8%BF%81%E7%A7%BB%E8%AE%B0%E5%BD%95/2026-11-03_Claude-AI------/%E4%BB%93%E5%BA%93%E8%B5%84%E4%BA%A7%E6%B8%85%E5%8D%95.json",
+      "action": "keep_summary_and_git_snapshot",
+      "current_targets": [
+        "历史归档/迁移摘要.json"
+      ],
+      "reason": "重复快照和事件明细保存在固定Git版本；当前仅维护身份、迁移结果、22个Issue映射和记录入口。"
+    },
+    {
+      "original_path": "历史归档/仓库迁移记录/2026-11-03_Claude-AI------/删除前Issue完整快照.json",
+      "original_blob_sha": "bd015018cf193b02b349906005658b706e1b7d41",
+      "original_bytes": 272265,
+      "original_url": "https://github.com/niceon-diy/claude--/blob/9249729196faa85c3b714b4686da59ff59bb38a7/%E5%8E%86%E5%8F%B2%E5%BD%92%E6%A1%A3/%E4%BB%93%E5%BA%93%E8%BF%81%E7%A7%BB%E8%AE%B0%E5%BD%95/2026-11-03_Claude-AI------/%E5%88%A0%E9%99%A4%E5%89%8DIssue%E5%AE%8C%E6%95%B4%E5%BF%AB%E7%85%A7.json",
+      "action": "keep_summary_and_git_snapshot",
+      "current_targets": [
+        "历史归档/迁移摘要.json"
+      ],
+      "reason": "重复快照和事件明细保存在固定Git版本；当前仅维护身份、迁移结果、22个Issue映射和记录入口。"
+    },
+    {
+      "original_path": "历史归档/仓库迁移记录/2026-11-03_Claude-AI------/删除状态.json",
+      "original_blob_sha": "479352217a9fb5add27e2b7c2aad60c6a48d6403",
+      "original_bytes": 1200,
+      "original_url": "https://github.com/niceon-diy/claude--/blob/9249729196faa85c3b714b4686da59ff59bb38a7/%E5%8E%86%E5%8F%B2%E5%BD%92%E6%A1%A3/%E4%BB%93%E5%BA%93%E8%BF%81%E7%A7%BB%E8%AE%B0%E5%BD%95/2026-11-03_Claude-AI------/%E5%88%A0%E9%99%A4%E7%8A%B6%E6%80%81.json",
+      "action": "keep_summary_and_git_snapshot",
+      "current_targets": [
+        "历史归档/迁移摘要.json"
+      ],
+      "reason": "重复快照和事件明细保存在固定Git版本；当前仅维护身份、迁移结果、22个Issue映射和记录入口。"
+    },
+    {
+      "original_path": "历史归档/仓库迁移记录/2026-11-03_Claude-AI------/文件映射.json",
+      "original_blob_sha": "b454a027240b0fca7538e5e06120b5d0c7e90d9c",
+      "original_bytes": 2366,
+      "original_url": "https://github.com/niceon-diy/claude--/blob/9249729196faa85c3b714b4686da59ff59bb38a7/%E5%8E%86%E5%8F%B2%E5%BD%92%E6%A1%A3/%E4%BB%93%E5%BA%93%E8%BF%81%E7%A7%BB%E8%AE%B0%E5%BD%95/2026-11-03_Claude-AI------/%E6%96%87%E4%BB%B6%E6%98%A0%E5%B0%84.json",
+      "action": "keep_summary_and_git_snapshot",
+      "current_targets": [
+        "历史归档/迁移摘要.json"
+      ],
+      "reason": "重复快照和事件明细保存在固定Git版本；当前仅维护身份、迁移结果、22个Issue映射和记录入口。"
+    },
+    {
+      "original_path": "历史归档/仓库迁移记录/2026-11-03_Claude-AI------/迁移前Issue原文.json",
+      "original_blob_sha": "4172636c50bd95d807e20401e9014c93dae8a402",
+      "original_bytes": 130880,
+      "original_url": "https://github.com/niceon-diy/claude--/blob/9249729196faa85c3b714b4686da59ff59bb38a7/%E5%8E%86%E5%8F%B2%E5%BD%92%E6%A1%A3/%E4%BB%93%E5%BA%93%E8%BF%81%E7%A7%BB%E8%AE%B0%E5%BD%95/2026-11-03_Claude-AI------/%E8%BF%81%E7%A7%BB%E5%89%8DIssue%E5%8E%9F%E6%96%87.json",
+      "action": "keep_summary_and_git_snapshot",
+      "current_targets": [
+        "历史归档/迁移摘要.json"
+      ],
+      "reason": "重复快照和事件明细保存在固定Git版本；当前仅维护身份、迁移结果、22个Issue映射和记录入口。"
+    },
+    {
+      "original_path": "历史归档/整理记录/2026-11-03/README.md",
+      "original_blob_sha": "6668f3eceee0f0154d97cdb1a0f7665647e7c405",
+      "original_bytes": 4989,
+      "original_url": "https://github.com/niceon-diy/claude--/blob/9249729196faa85c3b714b4686da59ff59bb38a7/%E5%8E%86%E5%8F%B2%E5%BD%92%E6%A1%A3/%E6%95%B4%E7%90%86%E8%AE%B0%E5%BD%95/2026-11-03/README.md",
+      "action": "merge_history_navigation",
+      "current_targets": [
+        "历史归档/迁移摘要.json"
+      ],
+      "reason": "重复快照和事件明细保存在固定Git版本；当前仅维护身份、迁移结果、22个Issue映射和记录入口。"
+    },
+    {
+      "original_path": "历史归档/整理记录/2026-11-03/目录映射.json",
+      "original_blob_sha": "921cf190226ede476c6a47fd02c250f5aac20690",
+      "original_bytes": 11425,
+      "original_url": "https://github.com/niceon-diy/claude--/blob/9249729196faa85c3b714b4686da59ff59bb38a7/%E5%8E%86%E5%8F%B2%E5%BD%92%E6%A1%A3/%E6%95%B4%E7%90%86%E8%AE%B0%E5%BD%95/2026-11-03/%E7%9B%AE%E5%BD%95%E6%98%A0%E5%B0%84.json",
+      "action": "keep_summary_and_git_snapshot",
+      "current_targets": [
+        "历史归档/迁移摘要.json"
+      ],
+      "reason": "重复快照和事件明细保存在固定Git版本；当前仅维护身份、迁移结果、22个Issue映射和记录入口。"
+    },
+    {
+      "original_path": "历史归档/整理记录/2026-11-03/验证结果.json",
+      "original_blob_sha": "ab7a32f89948c9609ae33a32c4e9267c53b5123b",
+      "original_bytes": 1855,
+      "original_url": "https://github.com/niceon-diy/claude--/blob/9249729196faa85c3b714b4686da59ff59bb38a7/%E5%8E%86%E5%8F%B2%E5%BD%92%E6%A1%A3/%E6%95%B4%E7%90%86%E8%AE%B0%E5%BD%95/2026-11-03/%E9%AA%8C%E8%AF%81%E7%BB%93%E6%9E%9C.json",
+      "action": "keep_summary_and_git_snapshot",
+      "current_targets": [
+        "历史归档/迁移摘要.json"
+      ],
+      "reason": "重复快照和事件明细保存在固定Git版本；当前仅维护身份、迁移结果、22个Issue映射和记录入口。"
+    },
+    {
+      "original_path": "历史归档/旧仓库原文/Claude-AI------/README.md",
+      "original_blob_sha": "9e1bd2f1bfbf5a23e0cfba136859d5bc68d758ed",
+      "original_bytes": 1140,
+      "original_url": "https://github.com/niceon-diy/claude--/blob/9249729196faa85c3b714b4686da59ff59bb38a7/%E5%8E%86%E5%8F%B2%E5%BD%92%E6%A1%A3/%E6%97%A7%E4%BB%93%E5%BA%93%E5%8E%9F%E6%96%87/Claude-AI------/README.md",
+      "action": "merge_navigation_and_provenance",
+      "current_targets": [
+        "历史归档/README.md",
+        "历史归档/来源与去留索引.json"
+      ],
+      "reason": "现用双语版已包含并发展原中文内容；原始版本通过固定Git提交读取。"
+    },
+    {
+      "original_path": "历史归档/旧仓库原文/Claude-AI------/提示词/P002_14个项目追加对应一览核对与参考Source差分整理.md",
+      "original_blob_sha": "5d9aacdc9afab49b37cd9ca2d4aea6887d23dcc8",
+      "original_bytes": 9503,
+      "original_url": "https://github.com/niceon-diy/claude--/blob/9249729196faa85c3b714b4686da59ff59bb38a7/%E5%8E%86%E5%8F%B2%E5%BD%92%E6%A1%A3/%E6%97%A7%E4%BB%93%E5%BA%93%E5%8E%9F%E6%96%87/Claude-AI------/%E6%8F%90%E7%A4%BA%E8%AF%8D/P002_14%E4%B8%AA%E9%A1%B9%E7%9B%AE%E8%BF%BD%E5%8A%A0%E5%AF%B9%E5%BA%94%E4%B8%80%E8%A7%88%E6%A0%B8%E5%AF%B9%E4%B8%8E%E5%8F%82%E8%80%83Source%E5%B7%AE%E5%88%86%E6%95%B4%E7%90%86.md",
+      "action": "remove_superseded_copy",
+      "current_targets": [
+        "追加开发/14个项目核对/P002_14个项目追加对应一览核对与参考Source差分整理.md"
+      ],
+      "reason": "现用双语版已包含并发展原中文内容；原始版本通过固定Git提交读取。"
+    },
+    {
+      "original_path": "历史归档/旧仓库原文/Claude-AI------/项目追加注意事项.md",
+      "original_blob_sha": "bd65a2ef9aa60baed083735250618bbc5bc64e8a",
+      "original_bytes": 4947,
+      "original_url": "https://github.com/niceon-diy/claude--/blob/9249729196faa85c3b714b4686da59ff59bb38a7/%E5%8E%86%E5%8F%B2%E5%BD%92%E6%A1%A3/%E6%97%A7%E4%BB%93%E5%BA%93%E5%8E%9F%E6%96%87/Claude-AI------/%E9%A1%B9%E7%9B%AE%E8%BF%BD%E5%8A%A0%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9.md",
+      "action": "remove_superseded_copy",
+      "current_targets": [
+        "追加开发/项目追加注意事项.md"
+      ],
+      "reason": "现用双语版已包含并发展原中文内容；原始版本通过固定Git提交读取。"
+    },
+    {
+      "original_path": "历史归档/调查笔记/Claude Code 全工程共通調査規範（総則）",
+      "original_blob_sha": "6ead0ff492262d71381f5c3ca8fedcf03f79feb1",
+      "original_bytes": 12794,
+      "original_url": "https://github.com/niceon-diy/claude--/blob/9249729196faa85c3b714b4686da59ff59bb38a7/%E5%8E%86%E5%8F%B2%E5%BD%92%E6%A1%A3/%E8%B0%83%E6%9F%A5%E7%AC%94%E8%AE%B0/Claude%20Code%20%E5%85%A8%E5%B7%A5%E7%A8%8B%E5%85%B1%E9%80%9A%E8%AA%BF%E6%9F%BB%E8%A6%8F%E7%AF%84%EF%BC%88%E7%B7%8F%E5%89%87%EF%BC%89",
+      "action": "merge_unique_content_then_remove_copy",
+      "current_targets": [
+        "通用提示词/调查与证据核对.md#scope-and-evidence"
+      ],
+      "reason": "合并范围覆盖、证据定位、双向核对、复查和中间成果，不重复已有声明。"
+    },
+    {
+      "original_path": "历史归档/调查笔记/TODO.txt",
+      "original_blob_sha": "5e2fbeb9ac47769e3631d83a48115570cb9e1d03",
+      "original_bytes": 147,
+      "original_url": "https://github.com/niceon-diy/claude--/blob/9249729196faa85c3b714b4686da59ff59bb38a7/%E5%8E%86%E5%8F%B2%E5%BD%92%E6%A1%A3/%E8%B0%83%E6%9F%A5%E7%AC%94%E8%AE%B0/TODO.txt",
+      "action": "merge_unique_content_then_remove_copy",
+      "current_targets": [
+        "通用提示词/COBOL分析/COBOL解析要求与候选方案.md#workflow-review"
+      ],
+      "reason": "关键词已由ADD/LATER任务展开，以流程对应表承接，不保留独立模糊TODO入口。"
+    },
+    {
+      "original_path": "历史归档/调查笔记/cobol1.txt",
+      "original_blob_sha": "e4d4c0b1b676f6040c75a73583d97e66563780ad",
+      "original_bytes": 7657,
+      "original_url": "https://github.com/niceon-diy/claude--/blob/9249729196faa85c3b714b4686da59ff59bb38a7/%E5%8E%86%E5%8F%B2%E5%BD%92%E6%A1%A3/%E8%B0%83%E6%9F%A5%E7%AC%94%E8%AE%B0/cobol1.txt",
+      "action": "merge_unique_content_then_remove_copy",
+      "current_targets": [
+        "通用提示词/COBOL分析/COBOL解析要求与候选方案.md#requirements",
+        "通用提示词/COBOL分析/COBOL解析要求与候选方案.md#candidate-architecture"
+      ],
+      "reason": "保留五阶段需求和产物契约，候选Agent/Skill/Command架构与实际部署状态分开。"
+    },
+    {
+      "original_path": "历史归档/调查笔记/cobol2",
+      "original_blob_sha": "0432fa319244e8b6342a67b9b0a546bf76711d7e",
+      "original_bytes": 2648,
+      "original_url": "https://github.com/niceon-diy/claude--/blob/9249729196faa85c3b714b4686da59ff59bb38a7/%E5%8E%86%E5%8F%B2%E5%BD%92%E6%A1%A3/%E8%B0%83%E6%9F%A5%E7%AC%94%E8%AE%B0/cobol2",
+      "action": "merge_unique_content_then_remove_copy",
+      "current_targets": [
+        "通用提示词/COBOL分析/COBOL解析要求与候选方案.md#section-map"
+      ],
+      "reason": "并入SECTION阶段，保留PROCEDURE范围、注释/数据部排除、边界和分批读取；最大文件仅候选。"
+    },
+    {
+      "original_path": "历史归档/调查笔记/cobol3",
+      "original_blob_sha": "d5a5b5e22b120842a5fa68e031babb2d3a1ed0e5",
+      "original_bytes": 2983,
+      "original_url": "https://github.com/niceon-diy/claude--/blob/9249729196faa85c3b714b4686da59ff59bb38a7/%E5%8E%86%E5%8F%B2%E5%BD%92%E6%A1%A3/%E8%B0%83%E6%9F%A5%E7%AC%94%E8%AE%B0/cobol3",
+      "action": "merge_unique_content_then_remove_copy",
+      "current_targets": [
+        "通用提示词/COBOL分析/COBOL解析要求与候选方案.md#requirements"
+      ],
+      "reason": "与cobol1前部是同组需求的日语表达，合入同一完整双语版。"
+    },
+    {
+      "original_path": "历史归档/调查笔记/harness",
+      "original_blob_sha": "19946778ab8ab6fb425662c32d10d6538f0f56a7",
+      "original_bytes": 2002,
+      "original_url": "https://github.com/niceon-diy/claude--/blob/9249729196faa85c3b714b4686da59ff59bb38a7/%E5%8E%86%E5%8F%B2%E5%BD%92%E6%A1%A3/%E8%B0%83%E6%9F%A5%E7%AC%94%E8%AE%B0/harness",
+      "action": "merge_unique_content_then_remove_copy",
+      "current_targets": [
+        "通用提示词/调查与证据核对.md#system-review"
+      ],
+      "reason": "保留Box/设计版本/调用资源/证据/操作约束五项检查与四态结论，不沿用旧禁止Git/等待指示条款。"
+    },
+    {
+      "original_path": "历史归档/调查笔记/hello.txt",
+      "original_blob_sha": "84cbcf324ad05c3aa1e4503aa5478f6b1c6ecf80",
+      "original_bytes": 21971,
+      "original_url": "https://github.com/niceon-diy/claude--/blob/9249729196faa85c3b714b4686da59ff59bb38a7/%E5%8E%86%E5%8F%B2%E5%BD%92%E6%A1%A3/%E8%B0%83%E6%9F%A5%E7%AC%94%E8%AE%B0/hello.txt",
+      "action": "merge_unique_content_then_remove_copy",
+      "current_targets": [
+        "通用提示词/影响调查与程序解说.md#impact-and-explanation"
+      ],
+      "reason": "不是示例程序；拆清影响调查与程序解说两部分，保留DB/IF/画面/OL/BT/共通处理和88级、THRU、双向行锚点等细节。"
+    },
+    {
+      "original_path": "历史归档/调查笔记/バージョン管理",
+      "original_blob_sha": "9b9db799f88e818f9791ba85909888d88456df42",
+      "original_bytes": 1440,
+      "original_url": "https://github.com/niceon-diy/claude--/blob/9249729196faa85c3b714b4686da59ff59bb38a7/%E5%8E%86%E5%8F%B2%E5%BD%92%E6%A1%A3/%E8%B0%83%E6%9F%A5%E7%AC%94%E8%AE%B0/%E3%83%90%E3%83%BC%E3%82%B8%E3%83%A7%E3%83%B3%E7%AE%A1%E7%90%86",
+      "action": "merge_unique_content_then_remove_copy",
+      "current_targets": [
+        "开发环境/规则部署与验收.md#version-backup"
+      ],
+      "reason": "现SUP-002已覆盖主体，统一before/after、编码/校验值、真实Diff与恢复，不强制新建Hooks。"
+    },
+    {
+      "original_path": "历史归档/调查笔记/リラン調査",
+      "original_blob_sha": "ae17635b37d093ccebccb627de0683fe4f7e9074",
+      "original_bytes": 3653,
+      "original_url": "https://github.com/niceon-diy/claude--/blob/9249729196faa85c3b714b4686da59ff59bb38a7/%E5%8E%86%E5%8F%B2%E5%BD%92%E6%A1%A3/%E8%B0%83%E6%9F%A5%E7%AC%94%E8%AE%B0/%E3%83%AA%E3%83%A9%E3%83%B3%E8%AA%BF%E6%9F%BB",
+      "action": "merge_unique_content_then_remove_copy",
+      "current_targets": [
+        "追加开发/重运行调查清单.md#rerun-checklist"
+      ],
+      "reason": "保留动态调用、参数/SQL、副作用、异常残留和恢复证据；旧本轮不得写文件/等待继续不沿用。"
+    },
+    {
+      "original_path": "历史归档/调查笔记/レガシーシステム静的解析の専門家",
+      "original_blob_sha": "2dceaf680abf4ce55be884512ffe0db98c7ca7b7",
+      "original_bytes": 11374,
+      "original_url": "https://github.com/niceon-diy/claude--/blob/9249729196faa85c3b714b4686da59ff59bb38a7/%E5%8E%86%E5%8F%B2%E5%BD%92%E6%A1%A3/%E8%B0%83%E6%9F%A5%E7%AC%94%E8%AE%B0/%E3%83%AC%E3%82%AC%E3%82%B7%E3%83%BC%E3%82%B7%E3%82%B9%E3%83%86%E3%83%A0%E9%9D%99%E7%9A%84%E8%A7%A3%E6%9E%90%E3%81%AE%E5%B0%82%E9%96%80%E5%AE%B6",
+      "action": "merge_unique_content_then_remove_copy",
+      "current_targets": [
+        "通用提示词/COBOL分析/单程序静态调查清单.md#static-checklist"
+      ],
+      "reason": "保留单文件证据边界、未解析外部节点、动态调用、资源副作用、异常和可信度；环境相关状态码不作通用事实。"
+    },
+    {
+      "original_path": "历史归档/调查笔记/证明过程",
+      "original_blob_sha": "054fedd708acde07f569c87d481f058fb671d88f",
+      "original_bytes": 1080,
+      "original_url": "https://github.com/niceon-diy/claude--/blob/9249729196faa85c3b714b4686da59ff59bb38a7/%E5%8E%86%E5%8F%B2%E5%BD%92%E6%A1%A3/%E8%B0%83%E6%9F%A5%E7%AC%94%E8%AE%B0/%E8%AF%81%E6%98%8E%E8%BF%87%E7%A8%8B",
+      "action": "merge_unique_content_then_remove_copy",
+      "current_targets": [
+        "通用提示词/调查与证据核对.md#evidence-review"
+      ],
+      "reason": "合入统一证据规则，保留前一步结论不可未经复查当成下一步事实。"
+    },
+    {
+      "original_path": "历史归档/资料来源.md",
+      "original_blob_sha": "9398b3b98b66bf721d3425e967057a7824ca2900",
+      "original_bytes": 1690,
+      "original_url": "https://github.com/niceon-diy/claude--/blob/9249729196faa85c3b714b4686da59ff59bb38a7/%E5%8E%86%E5%8F%B2%E5%BD%92%E6%A1%A3/%E8%B5%84%E6%96%99%E6%9D%A5%E6%BA%90.md",
+      "action": "merge_navigation_and_provenance",
+      "current_targets": [
+        "历史归档/README.md",
+        "历史归档/来源与去留索引.json"
+      ],
+      "reason": "导航、来源和历史入口统一维护。"
+    }
+  ]
+}

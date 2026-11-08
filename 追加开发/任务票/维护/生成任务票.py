@@ -2,6 +2,7 @@
 from __future__ import annotations
 import argparse
 import json
+import re
 from pathlib import Path
 from urllib.parse import quote
 
@@ -122,7 +123,12 @@ def validate(pack):
     assert not any(k.startswith('previous_') for k in pack)
     for s in sources.values():
         assert s.get('title') and s.get('title_zh')
-        assert (REPO_ROOT/s['path']).is_file(),('不存在的来源路径／存在しない資料',s['path'])
+        source_file=REPO_ROOT/s['path']
+        assert source_file.is_file(),('不存在的来源路径／存在しない資料',s['path'])
+        if s.get('anchor'):
+            assert re.fullmatch(r'[a-z][a-z0-9-]*',s['anchor']),('不合法的来源锚点／不正な資料アンカー',s['anchor'])
+            source_text=source_file.read_text(encoding='utf-8')
+            assert f'id="{s["anchor"]}"' in source_text,('来源章节不存在／資料の節が存在しない',s['path'],s['anchor'])
     visiting=set();visited=set()
     def walk(id):
         assert id not in visiting,('依赖环／依存循環',id)
@@ -134,7 +140,8 @@ def validate(pack):
 
 def source_url(pack,source):
     branch=pack.get('default_branch','codex/claude-environment')
-    return f"https://github.com/{pack['repository']}/blob/{quote(branch,safe='/')}/{quote(source['path'],safe='/')}"
+    url=f"https://github.com/{pack['repository']}/blob/{quote(branch,safe='/')}/{quote(source['path'],safe='/')}"
+    return url+'#'+quote(source['anchor'],safe='') if source.get('anchor') else url
 
 def issue_link(t,lang):
     return f"[{t['id']}｜{value(t,'title',lang)}]({t['issue_url']})"
@@ -160,7 +167,8 @@ def render_language(t,pack,lang,anchor):
     text+=f"### {labels['failure']}\n\n{labels['failure_text']}\n\n"+COMMON[lang]+'\n'
     text+=f"### {labels['refs']}\n\n"
     for id in t['refs']:
-        s=sources[id];text+=f"- {id}：[{value(s,'title',lang)}]({source_url(pack,s)})  \n  {labels['source_path']}：\u0060{s['path']}\u0060\n"
+        s=sources[id];location=s['path']+('#'+s['anchor'] if s.get('anchor') else '')
+        text+=f"- {id}：[{value(s,'title',lang)}]({source_url(pack,s)})  \n  {labels['source_path']}：\u0060{location}\u0060\n"
     return text+'\n'+labels['refs_note']+'\n'
 
 def render_ticket(t,pack,prefix=''):
@@ -200,8 +208,8 @@ def render_readme(pack):
         mappings=', '.join(t['id'] for t in pack['tickets'] if s['id'] in t['refs'])
         text+=f"| {s['id']} {s['title_zh']}／{s['title']} | [{s['path']}]({source_url(pack,s)}) | {mappings} |\n"
     text+='\n## 维护与实际状态／保守と実際の状態\n\n'
-    text+='- 中文：\u0060维护/任务数据.json\u0060是任务事实、编号、依赖、状态和双语内容的唯一维护来源。更新后在任务票目录运行\u0060python 维护/生成任务票.py\u0060，生成个别任务、总任务、README和合并原文；脚本只生成本地文件，不会上传或更新GitHub。共通规则、当前任务、任务要求模板和证据原则已纳入各任务。相同副本不重复建票；TODO是备忘，cobol1是讨论记录，hello含两种用途。创建文件或Issue不代表公司业务已经调查、开发或测试完成。\n'
-    text+='- 日本語：\u0060维护/任务数据.json\u0060がタスク事実、ID、依存、状態、二言語内容の唯一の保守元です。更新後にタスク票ディレクトリで\u0060python 维护/生成任务票.py\u0060を実行すると、個別チケット、総合、README、統合本文を生成します。スクリプトはローカル生成のみで、GitHubへ送信・更新しません。共通ルール、現在タスク、依頼テンプレート、証拠原則を各チケットへ反映しています。同一コピーは重複起票せず、TODOはメモ、cobol1は相談記録、helloは二つの用途を含む資料として扱います。ファイルやIssue作成は、会社の調査・開発・試験完了を意味しません。\n'
+    text+='- 中文：\u0060维护/任务数据.json\u0060是任务事实、编号、依赖、状态和双语内容的唯一维护来源。更新后在任务票目录运行\u0060python 维护/生成任务票.py\u0060，生成个别任务、总任务、README和合并原文；脚本只生成本地文件，不会上传或更新GitHub。共通规则、当前任务、任务要求模板和证据原则已纳入各任务。历史来源已合并为主题文档，章节链接可直接定位；原件通过历史归档的来源索引追溯，不重复建票。创建文件或Issue不代表公司业务已经调查、开发或测试完成。\n'
+    text+='- 日本語：\u0060维护/任务数据.json\u0060がタスク事実、ID、依存、状態、二言語内容の唯一の保守元です。更新後にタスク票ディレクトリで\u0060python 维护/生成任务票.py\u0060を実行すると、個別チケット、総合、README、統合本文を生成します。スクリプトはローカル生成のみで、GitHubへ送信・更新しません。共通ルール、現在タスク、依頼テンプレート、証拠原則を各チケットへ反映しています。旧資料はテーマ別文書へ統合し、節リンクで参照できます。原文は履歴索引から追跡し、重複起票しません。ファイルやIssue作成は、会社の調査・開発・試験完了を意味しません。\n'
     return text
 
 def main():

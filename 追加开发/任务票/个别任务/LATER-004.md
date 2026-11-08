@@ -71,12 +71,12 @@ GitHub：https://github.com/niceon-diy/claude--/issues/20
 
 ### 参考来源及资料处理
 
-- S04：[既有配置与调查基础评估](https://github.com/niceon-diy/claude--/blob/codex/claude-environment/%E5%8E%86%E5%8F%B2%E5%BD%92%E6%A1%A3/%E8%B0%83%E6%9F%A5%E7%AC%94%E8%AE%B0/harness)  
-  资料路径：`历史归档/调查笔记/harness`
-- S10：[全工程共通调查规范](https://github.com/niceon-diy/claude--/blob/codex/claude-environment/%E5%8E%86%E5%8F%B2%E5%BD%92%E6%A1%A3/%E8%B0%83%E6%9F%A5%E7%AC%94%E8%AE%B0/Claude%20Code%20%E5%85%A8%E5%B7%A5%E7%A8%8B%E5%85%B1%E9%80%9A%E8%AA%BF%E6%9F%BB%E8%A6%8F%E7%AF%84%EF%BC%88%E7%B7%8F%E5%89%87%EF%BC%89)  
-  资料路径：`历史归档/调查笔记/Claude Code 全工程共通調査規範（総則）`
-- S17：[分析依据检查](https://github.com/niceon-diy/claude--/blob/codex/claude-environment/%E5%8E%86%E5%8F%B2%E5%BD%92%E6%A1%A3/%E8%B0%83%E6%9F%A5%E7%AC%94%E8%AE%B0/%E8%AF%81%E6%98%8E%E8%BF%87%E7%A8%8B)  
-  资料路径：`历史归档/调查笔记/证明过程`
+- S04：[既有配置与调查基础评估](https://github.com/niceon-diy/claude--/blob/codex/claude-environment/%E9%80%9A%E7%94%A8%E6%8F%90%E7%A4%BA%E8%AF%8D/%E8%B0%83%E6%9F%A5%E4%B8%8E%E8%AF%81%E6%8D%AE%E6%A0%B8%E5%AF%B9.md#system-review)  
+  资料路径：`通用提示词/调查与证据核对.md#system-review`
+- S10：[全工程共通调查规范](https://github.com/niceon-diy/claude--/blob/codex/claude-environment/%E9%80%9A%E7%94%A8%E6%8F%90%E7%A4%BA%E8%AF%8D/%E8%B0%83%E6%9F%A5%E4%B8%8E%E8%AF%81%E6%8D%AE%E6%A0%B8%E5%AF%B9.md#scope-and-evidence)  
+  资料路径：`通用提示词/调查与证据核对.md#scope-and-evidence`
+- S17：[分析依据检查](https://github.com/niceon-diy/claude--/blob/codex/claude-environment/%E9%80%9A%E7%94%A8%E6%8F%90%E7%A4%BA%E8%AF%8D/%E8%B0%83%E6%9F%A5%E4%B8%8E%E8%AF%81%E6%8D%AE%E6%A0%B8%E5%AF%B9.md#evidence-review)  
+  资料路径：`通用提示词/调查与证据核对.md#evidence-review`
 
 即使公司环境无法读取参考源文件，本任务正文也已包含步骤、成果和完成条件。参考资料中的方案不等于已部署配置。
 
@@ -148,11 +148,11 @@ GitHub：https://github.com/niceon-diy/claude--/issues/20
 
 ### 参考元と資料の扱い
 
-- S04：[既存設定と調査基盤の評価](https://github.com/niceon-diy/claude--/blob/codex/claude-environment/%E5%8E%86%E5%8F%B2%E5%BD%92%E6%A1%A3/%E8%B0%83%E6%9F%A5%E7%AC%94%E8%AE%B0/harness)  
-  資料パス：`历史归档/调查笔记/harness`
-- S10：[全工程共通調査規範](https://github.com/niceon-diy/claude--/blob/codex/claude-environment/%E5%8E%86%E5%8F%B2%E5%BD%92%E6%A1%A3/%E8%B0%83%E6%9F%A5%E7%AC%94%E8%AE%B0/Claude%20Code%20%E5%85%A8%E5%B7%A5%E7%A8%8B%E5%85%B1%E9%80%9A%E8%AA%BF%E6%9F%BB%E8%A6%8F%E7%AF%84%EF%BC%88%E7%B7%8F%E5%89%87%EF%BC%89)  
-  資料パス：`历史归档/调查笔记/Claude Code 全工程共通調査規範（総則）`
-- S17：[分析根拠の点検](https://github.com/niceon-diy/claude--/blob/codex/claude-environment/%E5%8E%86%E5%8F%B2%E5%BD%92%E6%A1%A3/%E8%B0%83%E6%9F%A5%E7%AC%94%E8%AE%B0/%E8%AF%81%E6%98%8E%E8%BF%87%E7%A8%8B)  
-  資料パス：`历史归档/调查笔记/证明过程`
+- S04：[既存設定と調査基盤の評価](https://github.com/niceon-diy/claude--/blob/codex/claude-environment/%E9%80%9A%E7%94%A8%E6%8F%90%E7%A4%BA%E8%AF%8D/%E8%B0%83%E6%9F%A5%E4%B8%8E%E8%AF%81%E6%8D%AE%E6%A0%B8%E5%AF%B9.md#system-review)  
+  資料パス：`通用提示词/调查与证据核对.md#system-review`
+- S10：[全工程共通調査規範](https://github.com/niceon-diy/claude--/blob/codex/claude-environment/%E9%80%9A%E7%94%A8%E6%8F%90%E7%A4%BA%E8%AF%8D/%E8%B0%83%E6%9F%A5%E4%B8%8E%E8%AF%81%E6%8D%AE%E6%A0%B8%E5%AF%B9.md#scope-and-evidence)  
+  資料パス：`通用提示词/调查与证据核对.md#scope-and-evidence`
+- S17：[分析根拠の点検](https://github.com/niceon-diy/claude--/blob/codex/claude-environment/%E9%80%9A%E7%94%A8%E6%8F%90%E7%A4%BA%E8%AF%8D/%E8%B0%83%E6%9F%A5%E4%B8%8E%E8%AF%81%E6%8D%AE%E6%A0%B8%E5%AF%B9.md#evidence-review)  
+  資料パス：`通用提示词/调查与证据核对.md#evidence-review`
 
 会社環境で参考ファイルを読めなくても、本チケット本文には手順・成果・完了条件を含めている。参考資料の提案を導入済み設定とは扱わない。

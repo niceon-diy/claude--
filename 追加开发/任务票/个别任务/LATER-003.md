@@ -71,8 +71,8 @@ GitHub：https://github.com/niceon-diy/claude--/issues/19
 
 ### 参考来源及资料处理
 
-- S15：[影响调查及小白用 HTML 解说](https://github.com/niceon-diy/claude--/blob/codex/claude-environment/%E5%8E%86%E5%8F%B2%E5%BD%92%E6%A1%A3/%E8%B0%83%E6%9F%A5%E7%AC%94%E8%AE%B0/hello.txt)  
-  资料路径：`历史归档/调查笔记/hello.txt`
+- S15：[影响调查及小白用 HTML 解说](https://github.com/niceon-diy/claude--/blob/codex/claude-environment/%E9%80%9A%E7%94%A8%E6%8F%90%E7%A4%BA%E8%AF%8D/%E5%BD%B1%E5%93%8D%E8%B0%83%E6%9F%A5%E4%B8%8E%E7%A8%8B%E5%BA%8F%E8%A7%A3%E8%AF%B4.md#impact-and-explanation)  
+  资料路径：`通用提示词/影响调查与程序解说.md#impact-and-explanation`
 - S08：[程序与设计书对应调查](https://github.com/niceon-diy/claude--/blob/codex/claude-environment/%E9%80%9A%E7%94%A8%E6%8F%90%E7%A4%BA%E8%AF%8D/%E7%A8%8B%E5%BA%8F%E4%B8%8E%E8%AE%BE%E8%AE%A1%E4%B9%A6%E5%AF%B9%E5%BA%94%E8%B0%83%E6%9F%A5/P001_%E7%A8%8B%E5%BA%8F%E4%B8%8E%E8%AE%BE%E8%AE%A1%E4%B9%A6%E5%AF%B9%E5%BA%94%E8%B0%83%E6%9F%A5%E5%8F%8A%E6%8A%A5%E5%91%8A%E7%94%9F%E6%88%90%E6%8F%90%E7%A4%BA%E8%AF%8D.md)  
   资料路径：`通用提示词/程序与设计书对应调查/P001_程序与设计书对应调查及报告生成提示词.md`
 
@@ -146,8 +146,8 @@ GitHub：https://github.com/niceon-diy/claude--/issues/19
 
 ### 参考元と資料の扱い
 
-- S15：[影響調査と初心者向けHTML解説](https://github.com/niceon-diy/claude--/blob/codex/claude-environment/%E5%8E%86%E5%8F%B2%E5%BD%92%E6%A1%A3/%E8%B0%83%E6%9F%A5%E7%AC%94%E8%AE%B0/hello.txt)  
-  資料パス：`历史归档/调查笔记/hello.txt`
+- S15：[影響調査と初心者向けHTML解説](https://github.com/niceon-diy/claude--/blob/codex/claude-environment/%E9%80%9A%E7%94%A8%E6%8F%90%E7%A4%BA%E8%AF%8D/%E5%BD%B1%E5%93%8D%E8%B0%83%E6%9F%A5%E4%B8%8E%E7%A8%8B%E5%BA%8F%E8%A7%A3%E8%AF%B4.md#impact-and-explanation)  
+  資料パス：`通用提示词/影响调查与程序解说.md#impact-and-explanation`
 - S08：[プログラムと設計書の対応調査](https://github.com/niceon-diy/claude--/blob/codex/claude-environment/%E9%80%9A%E7%94%A8%E6%8F%90%E7%A4%BA%E8%AF%8D/%E7%A8%8B%E5%BA%8F%E4%B8%8E%E8%AE%BE%E8%AE%A1%E4%B9%A6%E5%AF%B9%E5%BA%94%E8%B0%83%E6%9F%A5/P001_%E7%A8%8B%E5%BA%8F%E4%B8%8E%E8%AE%BE%E8%AE%A1%E4%B9%A6%E5%AF%B9%E5%BA%94%E8%B0%83%E6%9F%A5%E5%8F%8A%E6%8A%A5%E5%91%8A%E7%94%9F%E6%88%90%E6%8F%90%E7%A4%BA%E8%AF%8D.md)  
   資料パス：`通用提示词/程序与设计书对应调查/P001_程序与设计书对应调查及报告生成提示词.md`
 

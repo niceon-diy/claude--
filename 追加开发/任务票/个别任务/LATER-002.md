@@ -72,14 +72,14 @@ GitHub：https://github.com/niceon-diy/claude--/issues/18
 
 ### 参考来源及资料处理
 
-- S02：[COBOL Agent／Skill 构成咨询](https://github.com/niceon-diy/claude--/blob/codex/claude-environment/%E5%8E%86%E5%8F%B2%E5%BD%92%E6%A1%A3/%E8%B0%83%E6%9F%A5%E7%AC%94%E8%AE%B0/cobol3)  
-  资料路径：`历史归档/调查笔记/cobol3`
-- S03：[COBOL 解析构成讨论记录](https://github.com/niceon-diy/claude--/blob/codex/claude-environment/%E5%8E%86%E5%8F%B2%E5%BD%92%E6%A1%A3/%E8%B0%83%E6%9F%A5%E7%AC%94%E8%AE%B0/cobol1.txt)  
-  资料路径：`历史归档/调查笔记/cobol1.txt`
-- S13：[COBOL SECTION 索引](https://github.com/niceon-diy/claude--/blob/codex/claude-environment/%E5%8E%86%E5%8F%B2%E5%BD%92%E6%A1%A3/%E8%B0%83%E6%9F%A5%E7%AC%94%E8%AE%B0/cobol2)  
-  资料路径：`历史归档/调查笔记/cobol2`
-- S22：[解析与评审工作备忘](https://github.com/niceon-diy/claude--/blob/codex/claude-environment/%E5%8E%86%E5%8F%B2%E5%BD%92%E6%A1%A3/%E8%B0%83%E6%9F%A5%E7%AC%94%E8%AE%B0/TODO.txt)  
-  资料路径：`历史归档/调查笔记/TODO.txt`
+- S02：[COBOL Agent／Skill 构成咨询](https://github.com/niceon-diy/claude--/blob/codex/claude-environment/%E9%80%9A%E7%94%A8%E6%8F%90%E7%A4%BA%E8%AF%8D/COBOL%E5%88%86%E6%9E%90/COBOL%E8%A7%A3%E6%9E%90%E8%A6%81%E6%B1%82%E4%B8%8E%E5%80%99%E9%80%89%E6%96%B9%E6%A1%88.md#requirements)  
+  资料路径：`通用提示词/COBOL分析/COBOL解析要求与候选方案.md#requirements`
+- S03：[COBOL 解析构成讨论记录](https://github.com/niceon-diy/claude--/blob/codex/claude-environment/%E9%80%9A%E7%94%A8%E6%8F%90%E7%A4%BA%E8%AF%8D/COBOL%E5%88%86%E6%9E%90/COBOL%E8%A7%A3%E6%9E%90%E8%A6%81%E6%B1%82%E4%B8%8E%E5%80%99%E9%80%89%E6%96%B9%E6%A1%88.md#candidate-architecture)  
+  资料路径：`通用提示词/COBOL分析/COBOL解析要求与候选方案.md#candidate-architecture`
+- S13：[COBOL SECTION 索引](https://github.com/niceon-diy/claude--/blob/codex/claude-environment/%E9%80%9A%E7%94%A8%E6%8F%90%E7%A4%BA%E8%AF%8D/COBOL%E5%88%86%E6%9E%90/COBOL%E8%A7%A3%E6%9E%90%E8%A6%81%E6%B1%82%E4%B8%8E%E5%80%99%E9%80%89%E6%96%B9%E6%A1%88.md#section-map)  
+  资料路径：`通用提示词/COBOL分析/COBOL解析要求与候选方案.md#section-map`
+- S22：[解析与评审工作备忘](https://github.com/niceon-diy/claude--/blob/codex/claude-environment/%E9%80%9A%E7%94%A8%E6%8F%90%E7%A4%BA%E8%AF%8D/COBOL%E5%88%86%E6%9E%90/COBOL%E8%A7%A3%E6%9E%90%E8%A6%81%E6%B1%82%E4%B8%8E%E5%80%99%E9%80%89%E6%96%B9%E6%A1%88.md#workflow-review)  
+  资料路径：`通用提示词/COBOL分析/COBOL解析要求与候选方案.md#workflow-review`
 
 即使公司环境无法读取参考源文件，本任务正文也已包含步骤、成果和完成条件。参考资料中的方案不等于已部署配置。
 
@@ -152,13 +152,13 @@ GitHub：https://github.com/niceon-diy/claude--/issues/18
 
 ### 参考元と資料の扱い
 
-- S02：[COBOL Agent・Skill構成相談](https://github.com/niceon-diy/claude--/blob/codex/claude-environment/%E5%8E%86%E5%8F%B2%E5%BD%92%E6%A1%A3/%E8%B0%83%E6%9F%A5%E7%AC%94%E8%AE%B0/cobol3)  
-  資料パス：`历史归档/调查笔记/cobol3`
-- S03：[COBOL解析の構成検討記録](https://github.com/niceon-diy/claude--/blob/codex/claude-environment/%E5%8E%86%E5%8F%B2%E5%BD%92%E6%A1%A3/%E8%B0%83%E6%9F%A5%E7%AC%94%E8%AE%B0/cobol1.txt)  
-  資料パス：`历史归档/调查笔记/cobol1.txt`
-- S13：[COBOL SECTIONマップ](https://github.com/niceon-diy/claude--/blob/codex/claude-environment/%E5%8E%86%E5%8F%B2%E5%BD%92%E6%A1%A3/%E8%B0%83%E6%9F%A5%E7%AC%94%E8%AE%B0/cobol2)  
-  資料パス：`历史归档/调查笔记/cobol2`
-- S22：[解析とレビューの作業メモ](https://github.com/niceon-diy/claude--/blob/codex/claude-environment/%E5%8E%86%E5%8F%B2%E5%BD%92%E6%A1%A3/%E8%B0%83%E6%9F%A5%E7%AC%94%E8%AE%B0/TODO.txt)  
-  資料パス：`历史归档/调查笔记/TODO.txt`
+- S02：[COBOL Agent・Skill構成相談](https://github.com/niceon-diy/claude--/blob/codex/claude-environment/%E9%80%9A%E7%94%A8%E6%8F%90%E7%A4%BA%E8%AF%8D/COBOL%E5%88%86%E6%9E%90/COBOL%E8%A7%A3%E6%9E%90%E8%A6%81%E6%B1%82%E4%B8%8E%E5%80%99%E9%80%89%E6%96%B9%E6%A1%88.md#requirements)  
+  資料パス：`通用提示词/COBOL分析/COBOL解析要求与候选方案.md#requirements`
+- S03：[COBOL解析の構成検討記録](https://github.com/niceon-diy/claude--/blob/codex/claude-environment/%E9%80%9A%E7%94%A8%E6%8F%90%E7%A4%BA%E8%AF%8D/COBOL%E5%88%86%E6%9E%90/COBOL%E8%A7%A3%E6%9E%90%E8%A6%81%E6%B1%82%E4%B8%8E%E5%80%99%E9%80%89%E6%96%B9%E6%A1%88.md#candidate-architecture)  
+  資料パス：`通用提示词/COBOL分析/COBOL解析要求与候选方案.md#candidate-architecture`
+- S13：[COBOL SECTIONマップ](https://github.com/niceon-diy/claude--/blob/codex/claude-environment/%E9%80%9A%E7%94%A8%E6%8F%90%E7%A4%BA%E8%AF%8D/COBOL%E5%88%86%E6%9E%90/COBOL%E8%A7%A3%E6%9E%90%E8%A6%81%E6%B1%82%E4%B8%8E%E5%80%99%E9%80%89%E6%96%B9%E6%A1%88.md#section-map)  
+  資料パス：`通用提示词/COBOL分析/COBOL解析要求与候选方案.md#section-map`
+- S22：[解析とレビューの作業メモ](https://github.com/niceon-diy/claude--/blob/codex/claude-environment/%E9%80%9A%E7%94%A8%E6%8F%90%E7%A4%BA%E8%AF%8D/COBOL%E5%88%86%E6%9E%90/COBOL%E8%A7%A3%E6%9E%90%E8%A6%81%E6%B1%82%E4%B8%8E%E5%80%99%E9%80%89%E6%96%B9%E6%A1%88.md#workflow-review)  
+  資料パス：`通用提示词/COBOL分析/COBOL解析要求与候选方案.md#workflow-review`
 
 会社環境で参考ファイルを読めなくても、本チケット本文には手順・成果・完了条件を含めている。参考資料の提案を導入済み設定とは扱わない。

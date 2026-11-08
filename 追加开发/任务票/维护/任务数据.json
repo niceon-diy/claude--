@@ -12,20 +12,29 @@
     {
       "id": "S02",
       "title": "COBOL Agent・Skill構成相談",
-      "path": "历史归档/调查笔记/cobol3",
-      "title_zh": "COBOL Agent／Skill 构成咨询"
+      "path": "通用提示词/COBOL分析/COBOL解析要求与候选方案.md",
+      "title_zh": "COBOL Agent／Skill 构成咨询",
+      "anchor": "requirements",
+      "original_path": "历史归档/调查笔记/cobol3",
+      "original_snapshot_commit": "9249729196faa85c3b714b4686da59ff59bb38a7"
     },
     {
       "id": "S03",
       "title": "COBOL解析の構成検討記録",
-      "path": "历史归档/调查笔记/cobol1.txt",
-      "title_zh": "COBOL 解析构成讨论记录"
+      "path": "通用提示词/COBOL分析/COBOL解析要求与候选方案.md",
+      "title_zh": "COBOL 解析构成讨论记录",
+      "anchor": "candidate-architecture",
+      "original_path": "历史归档/调查笔记/cobol1.txt",
+      "original_snapshot_commit": "9249729196faa85c3b714b4686da59ff59bb38a7"
     },
     {
       "id": "S04",
       "title": "既存設定と調査基盤の評価",
-      "path": "历史归档/调查笔记/harness",
-      "title_zh": "既有配置与调查基础评估"
+      "path": "通用提示词/调查与证据核对.md",
+      "title_zh": "既有配置与调查基础评估",
+      "anchor": "system-review",
+      "original_path": "历史归档/调查笔记/harness",
+      "original_snapshot_commit": "9249729196faa85c3b714b4686da59ff59bb38a7"
     },
     {
       "id": "S05",
@@ -60,8 +69,11 @@
     {
       "id": "S10",
       "title": "全工程共通調査規範",
-      "path": "历史归档/调查笔记/Claude Code 全工程共通調査規範（総則）",
-      "title_zh": "全工程共通调查规范"
+      "path": "通用提示词/调查与证据核对.md",
+      "title_zh": "全工程共通调查规范",
+      "anchor": "scope-and-evidence",
+      "original_path": "历史归档/调查笔记/Claude Code 全工程共通調査規範（総則）",
+      "original_snapshot_commit": "9249729196faa85c3b714b4686da59ff59bb38a7"
     },
     {
       "id": "S11",
@@ -78,62 +90,92 @@
     {
       "id": "S13",
       "title": "COBOL SECTIONマップ",
-      "path": "历史归档/调查笔记/cobol2",
-      "title_zh": "COBOL SECTION 索引"
+      "path": "通用提示词/COBOL分析/COBOL解析要求与候选方案.md",
+      "title_zh": "COBOL SECTION 索引",
+      "anchor": "section-map",
+      "original_path": "历史归档/调查笔记/cobol2",
+      "original_snapshot_commit": "9249729196faa85c3b714b4686da59ff59bb38a7"
     },
     {
       "id": "S14",
       "title": "レガシーシステム静的解析",
-      "path": "历史归档/调查笔记/レガシーシステム静的解析の専門家",
-      "title_zh": "遗留系统静态解析"
+      "path": "通用提示词/COBOL分析/单程序静态调查清单.md",
+      "title_zh": "遗留系统静态解析",
+      "anchor": "static-checklist",
+      "original_path": "历史归档/调查笔记/レガシーシステム静的解析の専門家",
+      "original_snapshot_commit": "9249729196faa85c3b714b4686da59ff59bb38a7"
     },
     {
       "id": "S15",
       "title": "影響調査と初心者向けHTML解説",
-      "path": "历史归档/调查笔记/hello.txt",
-      "title_zh": "影响调查及小白用 HTML 解说"
+      "path": "通用提示词/影响调查与程序解说.md",
+      "title_zh": "影响调查及小白用 HTML 解说",
+      "anchor": "impact-and-explanation",
+      "original_path": "历史归档/调查笔记/hello.txt",
+      "original_snapshot_commit": "9249729196faa85c3b714b4686da59ff59bb38a7"
     },
     {
       "id": "S16",
       "title": "リラン調査",
-      "path": "历史归档/调查笔记/リラン調査",
-      "title_zh": "重运行调查"
+      "path": "追加开发/重运行调查清单.md",
+      "title_zh": "重运行调查",
+      "anchor": "rerun-checklist",
+      "original_path": "历史归档/调查笔记/リラン調査",
+      "original_snapshot_commit": "9249729196faa85c3b714b4686da59ff59bb38a7"
     },
     {
       "id": "S17",
       "title": "分析根拠の点検",
-      "path": "历史归档/调查笔记/证明过程",
-      "title_zh": "分析依据检查"
+      "path": "通用提示词/调查与证据核对.md",
+      "title_zh": "分析依据检查",
+      "anchor": "evidence-review",
+      "original_path": "历史归档/调查笔记/证明过程",
+      "original_snapshot_commit": "9249729196faa85c3b714b4686da59ff59bb38a7"
     },
     {
       "id": "S18",
       "title": "変更の版管理",
-      "path": "历史归档/调查笔记/バージョン管理",
-      "title_zh": "变更版本管理"
+      "path": "开发环境/规则部署与验收.md",
+      "title_zh": "变更版本管理",
+      "anchor": "version-backup",
+      "original_path": "历史归档/调查笔记/バージョン管理",
+      "original_snapshot_commit": "9249729196faa85c3b714b4686da59ff59bb38a7"
     },
     {
       "id": "S19",
       "title": "作業依頼テンプレート",
-      "path": "历史归档/个人规则/任务要求模板.md",
-      "title_zh": "任务要求模板"
+      "path": "开发环境/模板/当前任务.md",
+      "title_zh": "任务要求模板",
+      "anchor": "task-request",
+      "original_path": "历史归档/个人规则/任务要求模板.md",
+      "original_snapshot_commit": "9249729196faa85c3b714b4686da59ff59bb38a7"
     },
     {
       "id": "S20",
       "title": "リモート個人ルール導入",
-      "path": "历史归档/个人规则/远程部署指令.md",
-      "title_zh": "远程个人规则部署"
+      "path": "开发环境/规则部署与验收.md",
+      "title_zh": "远程个人规则部署",
+      "anchor": "deployment",
+      "original_path": "历史归档/个人规则/远程部署指令.md",
+      "original_snapshot_commit": "9249729196faa85c3b714b4686da59ff59bb38a7"
     },
     {
       "id": "S21",
       "title": "個人の作業・説明ルール",
-      "path": "历史归档/个人规则/个人工作规则.md",
-      "title_zh": "个人工作与表达规则"
+      "path": "开发环境/模板/CLAUDE.md",
+      "title_zh": "个人工作与表达规则",
+      "anchor": "working-rules",
+      "original_path": "历史归档/个人规则/个人工作规则.md",
+      "original_snapshot_commit": "9249729196faa85c3b714b4686da59ff59bb38a7"
     },
     {
       "id": "S22",
       "title": "解析とレビューの作業メモ",
-      "path": "历史归档/调查笔记/TODO.txt",
-      "title_zh": "解析与评审工作备忘"
+      "path": "通用提示词/COBOL分析/COBOL解析要求与候选方案.md",
+      "title_zh": "解析与评审工作备忘",
+      "anchor": "workflow-review",
+      "original_path": "历史归档/调查笔记/TODO.txt",
+      "original_snapshot_commit": "9249729196faa85c3b714b4686da59ff59bb38a7"
     }
   ],
   "tickets": [
