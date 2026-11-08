@@ -56,7 +56,7 @@ MASTER_TEXT = {
 
 分别记录资料存在、规格确定、实现完成、测试执行和测试通过。当前创建任务票时，尚未核实公司的真实项目、Source、设计和测试环境。目标14个项目来自既有要求，不代表本仓库已确认其实际存在或资料齐全。
 
-首次执行时，先从已有资料查实际工程根、当前规则与任务记录、Source基准、有效设计、追加对应一览、参考Thema和成果保存位置。已有资料可回答的内容不要求用户重复输入；只具体询问确实无法找到的重要信息。
+首次执行时，先从已有资料查实际工程根、当前规则与任务记录、Source基准、有效设计、追加对应一览、参考テーマ和成果保存位置。已有资料可回答的内容不要求用户重复输入；只具体询问确实无法找到的重要信息。
 
 ### 最优先的追加开发顺序
 
@@ -74,7 +74,7 @@ ADD-001 → ADD-002 → ADD-003／ADD-004。索引齐备后ADD-005／ADD-006可�
 
 資料の存在、仕様の確定、実装の完了、試験の実行と通過を別々に記録する。チケット作成時点では、会社の実案件、Source、設計、試験環境をまだ確認していない。目標14案件は既存要求に由来し、本リポジトリで実在や資料充足を確認済みという意味ではない。
 
-初回は、実工程の根、現在ルールとタスク記録、Source基準、有効設計、追加対応一覧、参考Thema、成果保存場所を既存資料から探す。資料から分かる情報をユーザーへ再入力させず、本当に見つからない重要項目だけを具体的に確認する。
+初回は、実工程の根、現在ルールとタスク記録、Source基準、有効設計、追加対応一覧、参考テーマ、成果保存場所を既存資料から探す。資料から分かる情報をユーザーへ再入力させず、本当に見つからない重要項目だけを具体的に確認する。
 
 ### 最優先の追加開発順序
 
@@ -125,6 +125,10 @@ def validate(pack):
         assert s.get('title') and s.get('title_zh')
         source_file=REPO_ROOT/s['path']
         assert source_file.is_file(),('不存在的来源路径／存在しない資料',s['path'])
+        if s.get('language_paths'):
+            assert set(s['language_paths'])=={'zh','ja'},('资料语言版本不完整／資料の言語版が不足',s['id'])
+            for language,path in s['language_paths'].items():
+                assert (REPO_ROOT/path).is_file(),('语言版资料不存在／言語版資料が存在しない',s['id'],language,path)
         if s.get('anchor'):
             assert re.fullmatch(r'[a-z][a-z0-9-]*',s['anchor']),('不合法的来源锚点／不正な資料アンカー',s['anchor'])
             source_text=source_file.read_text(encoding='utf-8')
@@ -138,9 +142,12 @@ def validate(pack):
         visiting.remove(id);visited.add(id)
     for id in index:walk(id)
 
-def source_url(pack,source):
+def source_location(source,lang=None):
+    return source.get('language_paths',{}).get(lang,source['path'])
+
+def source_url(pack,source,lang=None):
     branch=pack.get('default_branch','codex/claude-environment')
-    url=f"https://github.com/{pack['repository']}/blob/{quote(branch,safe='/')}/{quote(source['path'],safe='/')}"
+    url=f"https://github.com/{pack['repository']}/blob/{quote(branch,safe='/')}/{quote(source_location(source,lang),safe='/')}"
     return url+'#'+quote(source['anchor'],safe='') if source.get('anchor') else url
 
 def issue_link(t,lang):
@@ -167,8 +174,8 @@ def render_language(t,pack,lang,anchor):
     text+=f"### {labels['failure']}\n\n{labels['failure_text']}\n\n"+COMMON[lang]+'\n'
     text+=f"### {labels['refs']}\n\n"
     for id in t['refs']:
-        s=sources[id];location=s['path']+('#'+s['anchor'] if s.get('anchor') else '')
-        text+=f"- {id}：[{value(s,'title',lang)}]({source_url(pack,s)})  \n  {labels['source_path']}：\u0060{location}\u0060\n"
+        s=sources[id];location=source_location(s,lang)+('#'+s['anchor'] if s.get('anchor') else '')
+        text+=f"- {id}：[{value(s,'title',lang)}]({source_url(pack,s,lang)})  \n  {labels['source_path']}：\u0060{location}\u0060\n"
     return text+'\n'+labels['refs_note']+'\n'
 
 def render_ticket(t,pack,prefix=''):
@@ -206,7 +213,8 @@ def render_readme(pack):
     text+='\n## 来源与任务对应／資料とチケットの対応\n\n| 来源／資料 | 文件／ファイル | 对应任务／対応チケット |\n|---|---|---|\n'
     for s in pack['sources']:
         mappings=', '.join(t['id'] for t in pack['tickets'] if s['id'] in t['refs'])
-        text+=f"| {s['id']} {s['title_zh']}／{s['title']} | [{s['path']}]({source_url(pack,s)}) | {mappings} |\n"
+        links=(f"[中文版]({source_url(pack,s,'zh')}) · [日本語版]({source_url(pack,s,'ja')})" if s.get('language_paths') else f"[{s['path']}]({source_url(pack,s)})")
+        text+=f"| {s['id']} {s['title_zh']}／{s['title']} | {links} | {mappings} |\n"
     text+='\n## 维护与实际状态／保守と実際の状態\n\n'
     text+='- 中文：\u0060维护/任务数据.json\u0060是任务事实、编号、依赖、状态和双语内容的唯一维护来源。更新后在任务票目录运行\u0060python 维护/生成任务票.py\u0060，生成个别任务、总任务、README和合并原文；脚本只生成本地文件，不会上传或更新GitHub。共通规则、当前任务、任务要求模板和证据原则已纳入各任务。历史来源已合并为主题文档，章节链接可直接定位；原件通过历史归档的来源索引追溯，不重复建票。创建文件或Issue不代表公司业务已经调查、开发或测试完成。\n'
     text+='- 日本語：\u0060维护/任务数据.json\u0060がタスク事実、ID、依存、状態、二言語内容の唯一の保守元です。更新後にタスク票ディレクトリで\u0060python 维护/生成任务票.py\u0060を実行すると、個別チケット、総合、README、統合本文を生成します。スクリプトはローカル生成のみで、GitHubへ送信・更新しません。共通ルール、現在タスク、依頼テンプレート、証拠原則を各チケットへ反映しています。旧資料はテーマ別文書へ統合し、節リンクで参照できます。原文は履歴索引から追跡し、重複起票しません。ファイルやIssue作成は、会社の調査・開発・試験完了を意味しません。\n'
