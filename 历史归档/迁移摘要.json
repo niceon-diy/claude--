@@ -192,7 +192,41 @@
   "local_legacy_backup_directory": "C:/Users/niceo/Documents/ChatGPT/Claude AI驱动系统开发/仓库迁移备份/2026-11-03_Claude-AI------/",
   "consolidation": {
     "snapshot_commit": "9249729196faa85c3b714b4686da59ff59bb38a7",
-    "verification_status": "in_progress",
-    "note": "仅删除默认分支的重复副本；旧完整快照与原文继续由可追溯的固定Git提交提供。"
+    "verification_status": "local_verified_issue_sync_pending",
+    "note": "仅删除默认分支的重复副本；旧完整快照与原文继续由可追溯的固定Git提交提供。",
+    "resumed_integration_date": "2026-11-08",
+    "integrated_remote_commit": "fd821f51f0c53032af00d5078f7c43ad35b5b7a2",
+    "core_governance": "核心规则/CORE-001_专家工作模式与PDCA质量闭环_已发送Claude.md",
+    "b001_scope": "专项表达与交付格式，按当前任务适用，不作为第二套通用总则",
+    "local_validation": {
+      "status": "passed",
+      "repository_files": 59,
+      "archive_files": 4,
+      "markdown_files": 50,
+      "links": {
+        "relative_file_links": 155,
+        "local_section_links": 112,
+        "current_branch_blob_links": 282,
+        "fixed_snapshot_links": 11
+      },
+      "source_ids": 22,
+      "source_section_anchors": 14,
+      "generated_files_matched": 24,
+      "business_tasks_unchanged": 21,
+      "missing_anchor_negative_case_rejected": true,
+      "latest_documents_preserved": [
+        "核心规则/CORE-001_专家工作模式与PDCA质量闭环_已发送Claude.md",
+        "追加开发/提示词/自研简化版AI开发Agent体系_需求分析提示词_中日双语.md",
+        "通用提示词/P003_工程任务队列与顺序执行管理提示词_中日双语.md",
+        "通用提示词/B001_把话说清楚与输出格式.md"
+      ],
+      "original_files_retrievable": 30,
+      "canonical_source_targets_verified": 35
+    },
+    "archive_file_count_before": 30,
+    "archive_file_count_after": 4,
+    "old_copies_removed_from_current_branch": 29,
+    "new_consolidated_topic_documents": 6,
+    "publication_date": "2026-11-08"
   }
 }
