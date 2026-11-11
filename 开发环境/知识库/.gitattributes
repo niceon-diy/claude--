@@ -1,0 +1,5 @@
+# Keep metadata and Markdown stable across Windows/Linux checkouts.
+* text=auto eol=lf
+# Original documents must retain their exact bytes, including text originals.
+/raw/** -text
+/examples/**/raw/** -text

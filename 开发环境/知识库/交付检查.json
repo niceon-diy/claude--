@@ -1,0 +1,25 @@
+{
+  "checked_at": "2026-11-09T23:56:57.934311+00:00",
+  "ok": true,
+  "markdown_files_checked": 19,
+  "python_files_parsed": 3,
+  "local_markdown_links": "all existing; placeholder templates excluded",
+  "skill_entries": [
+    "ingest",
+    "refine"
+  ],
+  "skill_check": "static metadata only; no model session invoked",
+  "unittest": {
+    "total": 28,
+    "passed": 27,
+    "skipped": 1,
+    "skip_reason": "Windows symlink creation permission"
+  },
+  "demo": {
+    "raw": 3,
+    "ingest": 3,
+    "concept": 2,
+    "validation": "passed"
+  },
+  "company_eval": "not executed"
+}

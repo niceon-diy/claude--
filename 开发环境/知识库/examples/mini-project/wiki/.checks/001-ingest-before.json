@@ -1,0 +1,11 @@
+{
+  "schema_version": 1,
+  "root": "C:\\Users\\niceo\\Documents\\ChatGPT\\Claude AI驱动系统开发\\claude-development-environment\\知识库\\examples\\mini-project",
+  "raw_files": {
+    "raw/DEMO-历史参考.md": "2d7b34f5e22c6c0b6a7b0907973160bfe49a497b4825618cb9566c4774d6e81e",
+    "raw/DEMO-同版补充.md": "09318ad2924037184b0f6bdbb524051820a928e0b099bbbe1f61f5e7d979a4dc",
+    "raw/DEMO-现行设计.md": "ee179bd44ce9947a3c0e1562ac17dd23465020b00acedc3935f6e2bf785591ce"
+  },
+  "notes": {},
+  "created_at": "2026-11-09T23:54:21.476450+00:00"
+}

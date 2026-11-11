@@ -1,0 +1,13 @@
+{
+  "command": "validate",
+  "ok": true,
+  "errors": [],
+  "limits": [
+    "仅核对来源元数据、文件哈希、引用及流程边界，不证明正文事实正确或实际已被 Agent 使用。"
+  ],
+  "root": "C:\\Users\\niceo\\Documents\\ChatGPT\\Claude AI驱动系统开发\\claude-development-environment\\知识库\\examples\\mini-project",
+  "counts": {
+    "raw_files": 3,
+    "notes": 3
+  }
+}

@@ -1,0 +1,10 @@
+# 公司资料与派生知识默认只留在公司允许的位置。
+/raw/**
+!/raw/.gitkeep
+/wiki/Concepts/**
+!/wiki/Concepts/.gitkeep
+/wiki/.checks/
+/wiki/进度.local.md
+# wiki/进度.md 是公开初始模板，运行记录只写上面的 local 文件。
+__pycache__/
+*.py[cod]
