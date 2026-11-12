@@ -6,7 +6,7 @@
 
 用語：本文のCaseはテストケース、期待結果はユーザー指定の想定値または正式な判定ルールを指します。
 
-[中文原版](P003_外层Agent编排与设计开发测试全流程执行提示词.md) · [日本語の使い方](README_日本語.md)
+[日本語の使い方](README.md)
 
 ## 使用方法
 
@@ -431,4 +431,4 @@ QID：
 - 本プロンプトは今回のユーザーとの相談に基づいて作成した。会社 Framework のソースコード、実際の Matrix、コンパイル済み成果物、データベース定義、開発環境への接続はまだ取得していない。
 - Oracle の構造 DDL における暗黙のコミットとメタデータ取得機構は、[Oracle DDL の説明](https://docs.oracle.com/en/database/oracle/oracle-database/19/tdddg/data-definition-language-ddl-statements.html) と [DBMS_METADATA](https://docs.oracle.com/en/database/oracle/oracle-database/19/arpls/DBMS_METADATA.html) を参照できる。具体的な実装は会社で実際に使用する版と既存のインターフェースに従って確認する必要がある。
 - FTP のバイナリ転送は [Python FTP インターフェース](https://docs.python.org/3/library/ftplib.html#ftplib.FTP.storbinary) を参照できる。実際のプロトコル、実行経路、プログラムのロード方式、復旧機構を一般的な文書から推定してはならない。
-- 同じディレクトリの `回答待ち事項_日本語.md` は、翌日にまとめて回答するための事前確認リストである。会社の Claude がまず調査し、自ら事実確認できる事項はユーザーに再度質問する必要はない。
+- 同じディレクトリの `回答待ち事項.md` は、翌日にまとめて回答するための事前確認リストである。会社の Claude がまず調査し、自ら事実確認できる事項はユーザーに再度質問する必要はない。
