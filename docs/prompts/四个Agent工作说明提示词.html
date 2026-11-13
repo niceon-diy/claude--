@@ -1,0 +1,33 @@
+<!doctype html><html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>四个 Agent 工作说明提示词</title><style>*{box-sizing:border-box}body{max-width:850px;margin:0 auto;padding:36px 20px 60px;background:#f5f5ef;color:#21382f;font:17px/1.7 system-ui,sans-serif}h1{font-size:clamp(27px,5vw,40px);line-height:1.25}h2{font-size:21px}header{border-top:5px solid #326d57}section{background:white;padding:clamp(16px,4vw,32px);border-radius:12px}pre{white-space:pre-wrap;overflow-wrap:anywhere;font:inherit}button{background:#275b49;color:white;border:0;border-radius:6px;padding:10px 16px;font:inherit;cursor:pointer}</style><header><h1>四个 Agent 分别干了什么？</h1><p>把下面整段提示词发给能读取项目的 Claude。它会根据工程里的定义、调用记录和成果物，编写一份从设计到画面连接测试的中文说明。</p></header><section><button id="copy">复制提示词</button><pre id="prompt">请阅读当前工程中四个新 Agent 的定义、它们引用的既存 Agent 和相关脚本。如果有同一次任务的执行记录和成果物，也请对照核实。请用项目成员能读懂的中文，生成一份可离线打开的《四个 Agent 工作说明.html》。本次只做调查和编写说明，无需重新运行开发或测试。
+
+先用一小段话串起四个阶段，再逐个说明。按下面的顺序讲，使用项目里的真实 Agent 名称。
+
+1. 设计：基本设计和详细设计各自依据什么资料、具体写出什么？两份设计之间有什么关系？
+2. 开发：依据哪份设计，生成或修改哪些程序？最终交付的是代码文件、修改建议，还是其他结果？
+3. 单体测试：针对哪个程序，准备了哪些用例或数据？写测试、执行测试、记录结果分别由谁负责？
+4. 画面到画面的连接测试：从哪个画面出发，经过什么操作，到哪个画面，验证什么结果？写清测试范围以及实际执行情况。
+
+每个阶段都沿着一份具体输入往下讲。按实际调用顺序，每一步用一两句话写清“谁拿到什么 → 做了什么 → 交出什么 → 谁接着用、用来做什么”。有真实例子就选一个贯穿全文；跨阶段交接无法确认时，标出断点。并行或满足条件才会执行的步骤，照实注明。
+
+每调用一个既存 Agent，就在对应步骤写出它的名字、收到的材料、实际承担的工作、返回给谁。它又委托其他 Agent 时，继续追到具体处理。特别讲清新 Agent 自己多做了哪一步。例如，若既存 Agent 只返回分析文本，由主 Agent 汇总并写入设计书，请把“返回文本”和“生成文件”分两步写，注明各自的执行者。这个例子只示范写法，内容以工程为准。
+
+最后列一张「Agent 入力・出力一览」。每个主 Agent 和每个被调用的既存 Agent 各占一行，共用的只列一次。表头为：
+Agent 名称｜谁调用它｜入力（来自哪里、拿到什么）｜主要处理｜最终出力（内容、文件或返回文本）｜交给谁、用途是什么
+
+语言简短，保留项目原名，尽量用“读取、比较、修改、返回、写入”等具体动词。每阶段末尾附上关键依据的位置（相对路径＋行号或小节）。只看到定义时写“按定义会……”，有执行记录时才写“本次已……”。找不到依据的输入、调用或产物标“未确认”。生成 HTML 后，告诉我保存路径。</pre></section><section lang="ja" style="margin-top:24px"><h2>日本語版</h2><button id="copy-ja">日本語のプロンプトをコピー</button><pre id="prompt-ja">このプロジェクトで新たに作成した4つのエージェントについて、定義ファイル、呼び出し先の既存エージェント、関連スクリプトを確認してください。同じタスクの実行記録と成果物があれば、それらも照合してください。プロジェクトのメンバーが読める平易な日本語で、オフラインでも開ける「4つのエージェントの作業説明.html」を作成してください。今回は調査と説明書の作成のみとし、開発やテストの再実行は不要です。
+
+冒頭で4工程のつながりを短く説明し、次の順に各工程を説明してください。エージェント名はプロジェクト内の正式名称を使ってください。
+
+1. 設計：基本設計書と詳細設計書は、それぞれどの資料に基づき、何を記載するのか。基本設計のどの内容が詳細設計に引き継がれるのか。
+2. 開発：どの設計書に基づき、どのプログラムを生成・修正するのか。最終成果物はソースファイル、修正案、あるいは別のものか。
+3. 単体テスト：どのプログラムを対象に、どのようなテストケースとデータを用意するのか。テストの作成、実行、結果の記録は、それぞれ誰が担当するのか。
+4. 画面間の結合テスト：どの画面から、どの操作で、どの画面へ遷移し、何を確認するのか。テストの対象範囲と実施状況を明記してください。
+
+各工程では、具体的な入力を一つ取り上げ、実際の呼び出し順に追ってください。各ステップは「誰が何を受け取るか → どう処理するか → 何を渡すか → 誰が何のために使うか」を1～2文で説明してください。実例があれば、同じ例を工程間で追ってください。引き渡しを確認できない箇所、並列処理、条件付きで実行する処理は、その旨を明記してください。
+
+既存エージェントを呼び出す箇所には、その名前、受け取る資料、担当する処理、結果を返す相手を書いてください。さらに別のエージェントへ委譲する場合は、具体的な処理を担当するところまで追ってください。新しいエージェント自身が追加で担う作業も明記してください。例えば、既存エージェントが分析結果を文章で返し、呼び出し元がそれを取りまとめて設計書に書き込む場合、「文章を返す」と「設計書に書き込む」を分け、それぞれの担当を示してください。これは記述例です。実際の説明はプロジェクトの資料に基づいてください。
+
+最後に「エージェント別 入出力一覧」を付けてください。4つの主要エージェントと、呼び出された既存エージェントをそれぞれ1行でまとめてください。複数の工程で共用するものは1行にまとめ、呼び出し元をすべて記載してください。
+エージェント名｜呼び出し元｜入力（入手元と内容）｜主な処理｜最終出力（内容・ファイル・応答テキストなど）｜受け渡し先と用途
+
+説明は簡潔にし、プロジェクト内の名称を保ち、「読み込む」「比較する」「修正する」「返す」「書き込む」など具体的な動詞を使ってください。各工程の末尾に根拠の所在（相対パスと行番号または節名）を示してください。定義だけで確認した動作は「定義上は～する」、実行記録で確認できた作業は「今回は～した」と書いてください。根拠が見つからない入力・呼び出し・成果物には「未確認」と記載してください。最後にHTMLの保存先を知らせてください。</pre></section><script>copy.onclick=async()=>{const el=document.getElementById('prompt');try{await navigator.clipboard.writeText(el.textContent);copy.textContent='已复制'}catch{let r=document.createRange();r.selectNodeContents(el);let s=getSelection();s.removeAllRanges();s.addRange(r);copy.textContent='已选中，请复制'}};document.getElementById('copy-ja').onclick=async function(){const el=document.getElementById('prompt-ja');try{await navigator.clipboard.writeText(el.textContent);this.textContent='コピーしました'}catch{const r=document.createRange();r.selectNodeContents(el);const sel=getSelection();sel.removeAllRanges();sel.addRange(r);this.textContent='選択しました。コピーしてください'}};</script></html>
