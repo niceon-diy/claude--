@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Step5不明点全量检查与对应一览／Step3改修方案评审报告</title>
+<style>
+:root{--ink:#223245;--muted:#536378;--navy:#173b58;--sky:#eef5fa;--line:#d9e4eb;--paper:#fff;--gold:#a8640e;--pale:#fff7e9;--green:#1a6d54;}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:#f3f6f8;color:var(--ink);font:15px/1.7 -apple-system,BlinkMacSystemFont,"Noto Sans CJK SC","Noto Sans JP","Microsoft YaHei",sans-serif}
+article{max-width:1080px;margin:30px auto;background:white;padding:46px 56px 76px;box-shadow:0 10px 30px #1f354212;border-radius:8px}
+h1{font-size:29px;line-height:1.32;color:var(--navy);margin:14px 0}h2{font-size:20px;color:var(--navy);border-bottom:2px solid var(--line);margin:40px 0 17px;padding-bottom:9px}h3{font-size:16px;color:#1c4767;margin:24px 0 10px}
+p{margin:9px 0}ul,ol{padding-left:22px;margin:10px 0}li{margin-bottom:5px}table{border-collapse:collapse;width:100%;margin:14px 0 23px;font-size:13px;line-height:1.55}th,td{padding:10px 10px;text-align:left;border:1px solid var(--line);vertical-align:top;word-break:break-word}th{background:#edf4f8;color:#163a55;font-weight:650}tbody tr:nth-child(even){background:#fafcfd}
+.small{font-size:12px;color:var(--muted)}.lead{color:var(--muted);font-size:16px}.meta{display:flex;flex-wrap:wrap;gap:8px;margin:18px 0}.pill{border:1px solid #d5dfe5;background:#f3f7f9;border-radius:99px;padding:3px 12px;font-size:12px}.warn{background:var(--pale);border-left:4px solid #bb7a23;padding:12px 16px;margin:18px 0}.info{background:var(--sky);border-left:4px solid #3a7193;padding:12px 16px;margin:18px 0}.ok{color:var(--green);font-weight:650}.no{color:#a04e22;font-weight:650}.mono{font:12px/1.55 ui-monospace,SFMono-Regular,Consolas,monospace;white-space:normal;overflow-wrap:anywhere}.toc{columns:2;column-gap:34px;max-width:800px}.toc a{color:#285a7c;text-decoration:none}.toc li{break-inside:avoid;padding-right:12px}.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:20px 0}.step{background:#f2f7fa;border:1px solid var(--line);padding:14px;border-radius:6px;min-height:88px;font-size:13px}.step b{display:block;color:#185477;font-size:15px}
+.check{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}.check label{display:block;border:1px solid var(--line);padding:9px 12px;border-radius:4px;font-size:13px;cursor:pointer}.check input{margin-right:8px}
+a{color:#286487}footer{font-size:12px;color:#697c87;border-top:1px solid var(--line);padding-top:16px;margin-top:45px}
+@media(max-width:740px){article{margin:0;border-radius:0;padding:23px 16px}.steps{grid-template-columns:1fr 1fr}.check{grid-template-columns:1fr}.toc{columns:1}table{font-size:12px}th,td{padding:7px}}
+@media print{body{background:white}article{margin:0;padding:8mm;box-shadow:none;max-width:none}h2,h3{break-after:avoid}tr{break-inside:avoid}table{break-inside:auto}.step,.warn,.info{-webkit-print-color-adjust:exact;print-color-adjust:exact}a{text-decoration:none;color:inherit}}
+</style></head><body><article>
+<div class="small">AI驱动系统开发 · 改修方案评审报告 · 2026年11月15日 · v1.0（提案版）</div>
+<h1>Step5 不明点全量检查<br>对应一览与 Step3 改修方案评审报告</h1>
+<p class="lead">目的：让 Step5 出现的不明点能倒查到“对应一览 → Step3 改修一览生成 → 下游交接”的具体缺陷，并在上游一次性解决，而非反复在 Step5 现场问答。</p>
+<div class="meta"><span class="pill">状态：方案待评审</span><span class="pill">正式文件：尚未改动</span><span class="pill">实际 Step5 QA 数：未取得</span><span class="pill">公司环境：未连接</span></div>
+<div class="warn"><strong>重要边界：</strong>本报告是供你审查的“拟修改方案”，不是已针对公司真实代码和清单完成的缺陷诊断。实际 Agent、Step3/Step5 定义、文件路径、QA 详情和历史版本尚未读取。因此下文所有“修改对象、示例、检查结果”均属于建议或待验证项，不得误读为已实装。</div>
+<h2 id="index">目录</h2><ol class="toc"><li><a href="#decision">建议先确认的结论</a></li><li><a href="#baseline">资料及职责基准</a></li><li><a href="#list">对应一览：准备怎么改</a></li><li><a href="#fields">主表和追踪表具体字段</a></li><li><a href="#s3">Step3：准备怎么改</a></li><li><a href="#qa">Step5 QA 如何回写</a></li><li><a href="#cases">前后示例及处理矩阵</a></li><li><a href="#test">验证、门禁及失败处理</a></li><li><a href="#plan">顺序、权限和风险</a></li><li><a href="#review">你的审核清单</a></li><li><a href="#ja">日本語確認版</a></li></ol>
+
+<h2 id="decision">01 · 建议先确认的结论</h2>
+<p><strong>建议采用“保留对应一览业务结构 + 增加追踪索引 + 加固 Step3 生成流程”</strong>，不建议因 Step5 出现 QA 就大改全部分类或把大量技术字段塞进主表。</p>
+<div class="steps"><div class="step"><b>① 对应一览</b>确定改哪些对象、概略怎么改；缺项才修</div><div class="step"><b>② Step3</b>将每个对应项展开成有证据、可执行的改修项</div><div class="step"><b>③ QA 门禁</b>先回查上游并自解决，真正需判断才形成 QA</div><div class="step"><b>④ Step5</b>只接受版本一致、覆盖完整、阻塞透明的交付</div></div>
+<p><strong>核心验收：</strong>Step5 的“零残留 QA”应理解为<strong>零未调查／零未归属／零被静默遗漏</strong>。真正需业务决策的事项保留为 <strong>BLOCKED</strong>，不能用删除或自动猜测使报告好看。</p>
+
+<h2 id="baseline">02 · 必须先核对的真实基准</h2>
+<table><thead><tr><th>项目</th><th>目前掌握</th><th>执行时必须核实</th></tr></thead><tbody>
+<tr><td>工程编号</td><td>当前要求：Step3 制作改修一览，Step5 存在 QA</td><td>确认实际 Step3／Step5 任务名称与 Agent 调用链；历史流程的编号可能不同</td></tr><tr><td>正式范围输入</td><td>対応一覧优先；数据库主表项目追加为起点</td><td>文件／Sheet／版本／对应ID／审批状态</td></tr><tr><td>下游执行清单</td><td>改修一覧／変更一覧是后续设计开发测试的主要输入</td><td>具体生成逻辑、文件结构、改修ID、交接版本</td></tr><tr><td>参考材料</td><td>Box 设计书、稳定 Source、类似主题改修前后 Diff 等</td><td>确认授权、路径、时间戳、来源一致性；不能猜测</td></tr><tr><td>实际 Step5 问题</td><td>尚未提供 QA 原文和运行日志</td><td>全量检索、去重、证据索引、QA-ID、影响范围</td></tr><tr><td>公司 Git</td><td>不得假设使用 Git</td><td>以公司现实保存机制记录基准与修订；本 GitHub 仅存此通用方案</td></tr></tbody></table>
+
+<h2 id="list">03 · 对应一览（対応一覧）准备怎么改？</h2>
+<h3>3.1 分类：尽量保持现有结构，补漏不重造</h3>
+<table><thead><tr><th>顺序</th><th>建议分类</th><th>检查要点</th><th>处理原则</th></tr></thead><tbody>
+<tr><td>01</td><td>DB 関連</td><td>主要表最前，之后相关表、VIEW、设定数据；DB 项目追加是否完整</td><td>明确主表字段和关联条件，链接下游引用对象</td></tr><tr><td>02</td><td>外部 API</td><td>API 项目追加／入出力／处理／错误分支</td><td>单列，避免混同内部 IF</td></tr><tr><td>03</td><td>IF</td><td>外部／系统 IF layout、数据项、调用条件</td><td>与 API 顺序一致；不重复计入</td></tr><tr><td>04</td><td>画面</td><td>输入、表示、校验、迁移、画面间连接</td><td>若属于正式范围，逐项关联</td></tr><tr><td>05</td><td>画面关联 CSV</td><td>画面连接或下载／上传相关 CSV 的定义、字段、映射</td><td>独立可追踪，但避免与画面重复描述同一需求</td></tr><tr><td>06</td><td>OL 機能</td><td>在线程序、业务处理、DB 访问、调用关系</td><td>以机能为主，Source 做关联索引</td></tr><tr><td>07</td><td>BT 機能</td><td>批处理、调度／文件与 SQL 影响、错误恢复</td><td>以机能为主，Source 做关联索引</td></tr><tr><td>附属索引</td><td>Source／模块关联</td><td>程序、类、方法、SQL、文件路径与对应ID链接</td><td>不是新的业务分类，也不增加“帳票”分类</td></tr></tbody></table>
+<p>如果公司现行对应一览已有上述内容，<strong>不做无意义改版</strong>；先找 Step5 的 QA 是否由遗漏、粒度不当或映射缺失造成，再决定需调整的具体位置。</p>
+
+<h3>3.2 主表怎么调整</h3>
+<p><strong>建议保留既有四列：</strong><code>ID｜名称｜概要説明｜改修内容</code>。正文写给业务／设计复核人员看，尽量短；技术追踪信息移到同一工作簿的辅助 Sheet 或附属文件。不要让一张表兼任需求、程序清单、QA 台账、证据库四种角色。</p>
+<table><thead><tr><th>主表字段</th><th>拟修订规则</th><th>例（仅格式示意）</th></tr></thead><tbody>
+<tr><td>ID</td><td>保持稳定、跨版本不重用；唯一定位对象及子项</td><td>DB-001</td></tr><tr><td>名称</td><td>明确业务对象和本次变化对象</td><td>主要表：项目追加</td></tr><tr><td>概要説明</td><td>说明当前→目标的业务变化，避免直接贴代码</td><td>新增管理项目并在关联功能中使用</td></tr><tr><td>改修内容</td><td>说明需改什么及关联处理；不写无证据实现细节</td><td>表定义更新；同步核查引用／更新对象</td></tr></tbody></table>
+
+<h3 id="fields">3.3 建议新建／补齐「追踪・证据索引」</h3>
+<table><thead><tr><th>字段</th><th>作用</th><th>为何必要</th></tr></thead><tbody>
+<tr><td>対応ID／行定位</td><td>主表的精确定位符（Sheet、行号、节）</td><td>防止 Step3 漏读或误认行</td></tr><tr><td>区分／对象键</td><td>分类及唯一对象键</td><td>跨 Sheet／跨对象去重</td></tr><tr><td>清单版本／Source 基准</td><td>对应一览版本、设计书／代码基准</td><td>发现使用旧版本</td></tr><tr><td>来源证据</td><td>Box 章节、Source 路径和行号、设计依据</td><td>让 Step5 QA 可反查</td></tr><tr><td>确定状态</td><td>確定／要確認／対象外（附理由）</td><td>不把推测当既定范围</td></tr><tr><td>改修ID 链接</td><td>一个対応ID可映射多个改修ID</td><td>可验证拆分完整性</td></tr><tr><td>关联QA-ID</td><td>Step5 问题的逆向索引</td><td>同类 QA 再现时可追根因</td></tr><tr><td>复核／批准状态</td><td>提出者、复核时间、审批状态</td><td>区分草案和正式范围</td></tr></tbody></table>
+<p><strong>变更审批：</strong>若对应一览缺少真实业务对象，应先生成修订差分并申请批准；不允许 Step3 依据参考 Source 自动追加正式改修范围。</p>
+
+<h2 id="s3">04 · Step3：改修一览的生成流程准备怎么改？</h2>
+<p>建议先把 Step3 现有执行链列为「入口 → 信息抽取 → 对象影响 → 改修项生成 → 检查 → QA → 出口／交接」。下面 S3-01～08 是<strong>待核查的控制点</strong>，并非已经确认公司代码缺少它们。</p>
+<table><thead><tr><th>ID</th><th>检查当前是否做到</th><th>拟修改措施（若缺失）</th><th>检查通过标准</th></tr></thead><tbody>
+<tr><td>S3-01</td><td>入口是否锁定有效对应一览、设计书、稳定 Source 及版本</td><td>创建输入基准清单，记录路径／版／时间戳／hash；缺版本或不一致则阻断</td><td>每次生成可复现并指向相同输入基准</td></tr><tr><td>S3-02</td><td>是否读取全部 Sheet／分类／有效行，包括主表、API、IF、画面、CSV、OL、BT</td><td>建立全量清点表，记录应读取数／实读数／异常行及遗漏原因</td><td>每个有效対応ID都被读取并有处理结果</td></tr><tr><td>S3-03</td><td>是否完成 DB→程序／SQL→API／IF→画面／CSV→测试影响追踪</td><td>增加影响展开与证据约束；影响なし必须记录理由</td><td>影响有／无／待确认都有可定位依据</td></tr><tr><td>S3-04</td><td>是否将一个需求拆为可执行、可追溯的改修单位</td><td>给每项稳定改修ID、对象、现行→改修后、理由、来源、依赖、证据和状态</td><td>每个改修ID能明确说明谁改什么、为什么</td></tr><tr><td>S3-05</td><td>是否利用既存类似项目的改修前后 Diff 检查具体改法</td><td>记录参考文件 before／after、差异、适用条件与采用理由；不扩大范围</td><td>无证据时状态为未确认，而非臆测已确定</td></tr><tr><td>S3-06</td><td>是否进行对应ID ↔ 改修ID 双向验证</td><td>增加缺项、重复、孤儿项、冲突、错版、范围外改修检查器</td><td>无未解释漏项，例外有理由／审批</td></tr><tr><td>S3-07</td><td>是否在 QA 发给用户前完成根因调查</td><td>按输入缺失、生成缺陷、传递、资料冲突、工具和业务判断分类，自解决并记录证据</td><td>无笼统 QA；每个待决事项有调查清单和明确问题</td></tr><tr><td>S3-08</td><td>是否把完整改修一览、版本、覆盖矩阵与未决项交给 Step5</td><td>制定交接契约：改修ID 集合、版本、证据索引、状态必须被后续读取确认</td><td>Step5 接收数据与 Step3 输出一致；失败即阻断</td></tr></tbody></table>
+
+<h3>4.1 推荐改修一览（Step3 Output）字段</h3>
+<table><thead><tr><th>必需字段</th><th>含义／要求</th></tr></thead><tbody>
+<tr><td>改修ID｜对应ID｜区分｜对象</td><td>明确由哪个对应一览项目展开成哪个具体改修对象；一对多允许</td></tr><tr><td>現行仕様｜改修後仕様｜改修理由</td><td>明确差异、边界和原因，不用“按需求修改”等空话</td></tr><tr><td>处理位置｜影响关联</td><td>程序／类／方法／SQL／API／IF／画面／CSV，能定位就标路径和行号</td></tr><tr><td>证据位置｜Source 基准</td><td>设计书版次／章节、代码基准、类似项目 Diff</td></tr><tr><td>状态｜QA-ID｜前置依赖</td><td>確定／要確認／対象外；不明点不能混入已确定执行内容</td></tr><tr><td>生成版｜复核结果</td><td>标识哪一轮生成、使用什么基准、是否通过双向覆盖</td></tr></tbody></table>
+<p>主张：**对应一览仍负责“改什么”；Step3 才负责展开“具体谁改、在哪里改、怎样验证”**，避免两个文件职责混乱。</p>
+
+<h2 id="qa">05 · Step5 QA 发现后，应该回写哪里？</h2>
+<table><thead><tr><th>QA 主因</th><th>对应一览准备怎么改</th><th>Step3 准备怎么改</th><th>是否可直接定案</th></tr></thead><tbody>
+<tr><td>A 业务范围遗漏／矛盾</td><td>列候选改修条目或说明修订差分</td><td>批准后重新展开该对应ID的改修项</td><td>否，需业务审批</td></tr><tr><td>B Step3 漏抽取／误生成</td><td>原清单正确则不改</td><td>修补抽取、原子化或覆盖校验并重生成</td><td>授权范围内可修</td></tr><tr><td>C 版本／交接错误</td><td>原清单正确则不改</td><td>修复版本检查、传递及接收验证</td><td>授权范围内可修</td></tr><tr><td>D Step5 独立问题</td><td>不改</td><td>通常不改，记录不上游的理由</td><td>在本阶段有证据地处理</td></tr><tr><td>E 设计／Source 冲突</td><td>仅业务范围不清才提出澄清</td><td>保留争议证据，不凭空决定</td><td>视审批权限</td></tr><tr><td>F 工具／权限故障</td><td>不改</td><td>修复受权工具流程；权限问题请求授权</td><td>超权限必须阻塞</td></tr><tr><td>G 必须业务决策</td><td>提出明确待决差异</td><td>保持候选／BLOCKED，不生成假定确定项</td><td>否</td></tr></tbody></table>
+<p>一项 QA 即使关联多个文件也只有一个主根因，可以记录多个次因；必须保留 QA-ID、对应ID、改修ID、处理前后、证据和状态的完整链。</p>
+
+<h2 id="cases">06 · 修改前后示例（仅用于评审格式，不是已发生缺陷）</h2>
+<h3>示例 A：对应一览写了 DB 项目追加，但 Step3 漏了画面影响</h3>
+<table><thead><tr><th>位置</th><th>修改前示意</th><th>拟修改后</th></tr></thead><tbody>
+<tr><td>对应一览</td><td>DB-001：主要表追加项目</td><td>如业务范围明确覆盖画面，则在对应一览画面条目或关联说明中建立対応ID关联；若尚不明确，只列待审批差分</td></tr><tr><td>Step3 改修一览</td><td>仅有 DB-001 对应的表定义修改</td><td>保留 DB 改修项，同时新增经证据支持的画面／API／IF／SQL 等改修 ID；写明来源对应 ID</td></tr><tr><td>Step3 生成流程</td><td>仅从 DB 区分直接生成一条改修记录（假设问题）</td><td>增加影响展开（S3-03）与双向覆盖检查（S3-06）</td></tr><tr><td>Step5 QA</td><td>“画面是否要改？”（假设问题）</td><td>如设计书明确且范围已确认：自行关闭 QA，关联改修 ID；否则保留正式审批阻塞</td></tr></tbody></table>
+<h3>示例 B：Step3 已生成正确项，Step5 仍提问</h3>
+<table><thead><tr><th>现象</th><th>不应做的处理</th><th>正确处理</th></tr></thead><tbody>
+<tr><td>Step5 Agent 因未读取最新版而重复问已确定的接口定义</td><td>随意修改对应一览或补造新的业务要求</td><td>修复 Step3 交接清单、版本号及下游必读校验；复跑确认该 QA 不复发</td></tr></tbody></table>
+
+<h3>6.1 实际调查时必须填的差分清单</h3>
+<table><thead><tr><th>QA-ID</th><th>对应ID／改修ID</th><th>现状证据</th><th>对应一览修订（前→后）</th><th>Step3 修订（前→后）</th><th>审批／复验</th></tr></thead><tbody>
+<tr><td>待实际发现</td><td>未取得</td><td>未取得</td><td>待证据及差分</td><td>待实际 Agent／脚本定位</td><td>未审批／未验证</td></tr>
+<tr><td colspan="6" class="small">禁止为了填满表格而编造改修 ID、文件名、行号、QA 数量或测试结果。</td></tr>
+</tbody></table>
+
+<h2 id="test">07 · 质量检查、出口门禁与测试方案</h2>
+<table><thead><tr><th>Test ID</th><th>测试情形</th><th>期望结果</th></tr></thead><tbody>
+<tr><td>T-01</td><td>一条对应一览对应多个可执行改修对象</td><td>生成多个稳定改修ID，均回指同一对应ID</td></tr><tr><td>T-02</td><td>对应一览存在未读 Sheet／有效行</td><td>Step3 不能静默完成，输出具体遗漏对象</td></tr><tr><td>T-03</td><td>Step3 使用旧版本设计书或代码</td><td>版本门禁阻断并给出版本差异</td></tr><tr><td>T-04</td><td>无证据将参考案件对象加入正式改修范围</td><td>范围检查拒绝，无业务授权不得扩大</td></tr><tr><td>T-05</td><td>同一改修重复生成／出现无来源改修ID</td><td>双向检查发现重复或孤儿项</td></tr><tr><td>T-06</td><td>Step5 的 QA 已可在 Step3 输入中找到答案</td><td>执行自调查并关闭，保留证据，不直接问用户</td></tr><tr><td>T-07</td><td>对应一览缺失且确实需要业务判断</td><td>生成候选差分与 BLOCKED，而非自动确认</td></tr><tr><td>T-08</td><td>Step3 已完成但 Step5 读取的是旧版改修一览</td><td>接收契约失败，禁止 Step5 无阻塞通过</td></tr><tr><td>T-09</td><td>检查脚本异常／找不到日志</td><td>NOT_VERIFIED 或 BLOCKED；禁止成功自报</td></tr><tr><td>T-10</td><td>修补后重新运行 Step3 与 Step5</td><td>回归问题不再发生、覆盖矩阵一致、日志可复核</td></tr></tbody></table>
+<div class="info"><strong>Step5 出口判定：</strong><br><strong>PASS</strong>＝全 QA 已调查归属、上游修改获授权并落实、双向覆盖与复测通过、无关键阻塞；<br><strong>BLOCKED</strong>＝仍需业务决定、权限、缺少必要输入或存在未解决关键差异；<br><strong>NOT_VERIFIED</strong>＝未取得完整环境、无法完成必要检查或复测。</div>
+
+<h2 id="plan">08 · 推荐落地顺序、审批与风险控制</h2>
+<ol><li><strong>只读调查：</strong>确认真实 Step3／Step5 和输入文件、现行对应一览格式、QA 原文及权限。</li><li><strong>QA 全量建账：</strong>去重、查因、对应ID／改修ID映射、证据采集；不能绕过需用户提供的真正业务判断。</li><li><strong>先交评审版：</strong>展示对应一览每条候选修订差分和 Step3 每个节点改修设计；标“已确认事实／推断／建议／待审批”。</li><li><strong>审批后再修改：</strong>范围类先更新对应一览，再改 Step3 规则和生成逻辑；仅交接缺陷不动业务清单；保护原始资料。</li><li><strong>复验：</strong>重新生成改修一览，检查上下游 ID／版本，重新运行 Step5，核对 QA 台账与复现结果。</li><li><strong>归档：</strong>在项目内 document／output 保存报告、差分、证据索引、版本、审批记录和审计日志。</li></ol>
+<div class="warn"><strong>主要风险：</strong>① 未经审批改变业务范围；② Step 编号与实际工程不一致；③ 以缺少 QA 数量冒充零 QA；④ “已生成文件”被误认为已正确传递；⑤ 公司资料复制到公开 GitHub。<strong>缓解：</strong>所有公司机密原文与 Source 保持在获授权的公司环境；GitHub 中只存本通用方案与不含机密的提示词。</div>
+
+<h2 id="review">09 · 供你逐项认真审核的确认清单</h2>
+<div class="check">
+<label><input type="checkbox"> 保留对应一览的主字段 ID／名称／概要説明／改修内容</label>
+<label><input type="checkbox"> 分类顺序 DB → 外部 API → IF → 画面 → 画面CSV → OL → BT</label>
+<label><input type="checkbox"> DB 主要表始终位于最前；不加入帳票</label>
+<label><input type="checkbox"> Source 作为关联索引，避免重复业务登记</label>
+<label><input type="checkbox"> 增加追踪／证据索引，但不无谓扩宽主表</label>
+<label><input type="checkbox"> Step3 生成前检查输入基准及版本</label>
+<label><input type="checkbox"> Step3 改修项必须有对应 ID、证据、差分与状态</label>
+<label><input type="checkbox"> Step3 双向覆盖和交接门禁须可验证</label>
+<label><input type="checkbox"> Step5 QA 必须先调查原因，不直接甩给用户</label>
+<label><input type="checkbox"> 真正业务判断保持 BLOCKED，不能伪装零 QA</label>
+<label><input type="checkbox"> 先批准详细差分，再改正式文件和 Agent</label>
+<label><input type="checkbox"> 修改后重新跑 Step3／Step5 并保存证据</label>
+</div>
+<p class="small">本清单仅供本地阅读／打印时勾选，不会发送或自动提交审批；正式批准需通过公司认可的审批方式记录。</p>
+<h3>9.1 现在还不能给出的真实结论</h3>
+<p>实际 Step5 QA 总数、哪些 QA 真正源于 Step3、正式对应一览确切要增删哪一行、Step3 具体哪个 Agent／脚本需要修改、真实通过率、所需工时：<strong>均尚未取得依据。</strong>以上是本次公司 Claude 需要先调查并填入本报告的项目。</p>
+
+<h2 id="ja" lang="ja">10 · 日本語版｜レビュー用方針書</h2>
+<p><strong>件名：</strong>Step5 不明点の全件調査および対応一覧・Step3 改修一覧生成処理の改善案。</p>
+<div class="warn" lang="ja"><strong>注意：</strong>本書は現行ソース・実際の QA 原文・正式な設計書を未確認の提案版です。正式な対応一覧や Agent を改修済みという意味ではありません。最初は読み取り専用で調査し、改修案の承認後に実施してください。</div>
+<h3 lang="ja">10.1 改善の基本方針</h3>
+<p lang="ja">対応一覧は「何を改修するか」の上位基準です。主表示列（ID／名称／概要説明／改修内容）をなるべく維持し、対応 ID・証跡・変更 ID・QA-ID・版数等は追跡用の Sheet または付属索引で管理します。Step3 は対応一覧の全件を読み取り、改修対象を実行可能な単位へ展開し、後続工程へ漏れなく引き継ぎます。</p>
+<h3 lang="ja">10.2 対応一覧の見直し</h3>
+<table lang="ja"><thead><tr><th>対象</th><th>変更案</th><th>判定基準</th></tr></thead><tbody>
+<tr><td>分類</td><td>DB（主要テーブル優先）→ 外部 API → IF → 画面 → 画面関連 CSV → OL → BT</td><td>正式な現行構成との差分がある場合のみ提案。帳票の無断追加禁止</td></tr><tr><td>主表</td><td>ID／名称／概要説明／改修内容を可能な限り維持</td><td>業務担当者が理解できること</td></tr><tr><td>追跡索引</td><td>対応ID、対象、版、証跡、確定状態、改修ID、QA-ID、承認情報</td><td>上流・下流を双方向に追跡可能</td></tr><tr><td>範囲変更</td><td>変更前後、理由、証跡、影響を候補差分として提出</td><td>承認前に正式改修範囲を変更しない</td></tr></tbody></table>
+<h3 lang="ja">10.3 Step3 に追加・強化すべき検証点</h3>
+<table lang="ja"><thead><tr><th>管理 ID</th><th>改善内容</th></tr></thead><tbody>
+<tr><td>S3-01</td><td>入力となる対応一覧／設計書／Source／参考資料の版と基準を固定</td></tr><tr><td>S3-02</td><td>DB・API・IF・画面・CSV・OL・BT の全件読込と件数突合</td></tr><tr><td>S3-03</td><td>DB 項目から SQL、Source、API／IF、画面／CSV、試験まで影響調査</td></tr><tr><td>S3-04</td><td>安定した改修 ID、変更前後、出典対応ID、証跡、確定状態をもつ改修項目の作成</td></tr><tr><td>S3-05</td><td>類似案件の改修前後 Diff を調査し、採否理由と適用条件を記録</td></tr><tr><td>S3-06</td><td>対応 ID ↔ 改修 ID の双方向網羅性、重複、漏れ、矛盾、対象外を検査</td></tr><tr><td>S3-07</td><td>QA 発行前に原因調査と自己解決を実施。要判断事項だけ正式 QA</td></tr><tr><td>S3-08</td><td>改修一覧・版・未決事項・証跡索引を後続へ引継ぎ、受領／版一致を検証</td></tr></tbody></table>
+<h3 lang="ja">10.4 QA の反映先と出口判定</h3>
+<p lang="ja">対応一覧自体が不足する場合は候補差分を作成して承認を取得し、その後に改修一覧へ反映します。Step3 の抽出ミスなら生成処理を修正します。版や引継ぎの不備なら連携を修正します。Step5 固有の課題は当該工程で対処し、上流を無用に変更しません。業務判断を要する事項は明確な選択肢と根拠を提示し、<strong>BLOCKED</strong> とします。</p>
+<p lang="ja">Step5 の QA 残留ゼロとは、未調査／未分類／未処理の QA をなくすことです。未承認の業務上の重要事項を勝手に解決済みにしてはいけません。再生成と再実行による実証ができなければ PASS と判断できません。</p>
+<h3 lang="ja">10.5 承認前に必要な具体的成果</h3>
+<p lang="ja">実 QA ごとの QA-ID、対応 ID、改修 ID、証跡、原因、対応一覧の変更前／変更後、Step3 の対象 Agent／スクリプトと変更前／変更後、承認要否、正常・異常系テスト、実施状況を記載した差分表。実際のファイルや行番号が未取得なら「未取得／未検証」と明記してください。</p>
+<footer>作成目的：会社 Claude に対する事前レビュー資料。GitHub にはこの汎用レビュー案のみ保存し、会社の機密情報・実データ・Source は保存しない。</footer>
+</article></body></html>
